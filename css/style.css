@@ -46,42 +46,6 @@ body{
     max-width: 100%; */
 }
 
-/* .flex-container{
-    display:flex;
-    max-width:max-content;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-.flex-item{
-    border-radius: 10px;
-    background: rgba(202, 210, 197, 0.85);
-    padding:20px;
-    padding-top:10px;
-    max-width: max-content;
-    text-align: center;
-    flex:100%;
-}
-.flex-item-left{
-    border-radius: 10px;
-    background: rgba(202, 210, 197, 0.85);
-    padding:10px;
-    margin: 10px;
-    margin-left: 0px;
-    flex: 45%;
-    text-align: center;
-    box-sizing: border-box;
-}
-.flex-item-right{
-    border-radius: 10px;
-    background: rgba(202, 210, 197, 0.85);
-    padding:10px;
-    margin: 10px;
-    margin-right: 0px;
-    flex: 45%;
-    text-align: center;
-    box-sizing: border-box;
-} */
-
  .grid-container{
     display:grid;
     max-width:max-content;
@@ -143,4 +107,7 @@ body{
     font-size: 24px;
     font-family: "Arvo", serif;
     color:#eaf4f4;
+}
+.quote{
+    font-style: oblique;
 }
