@@ -3,15 +3,18 @@ h1{
     font-family: "Arvo", serif;
     font-size: 50px;
 }
+
 h2{
     font-family: "Arvo", serif;
     font-size:40px;
     text-align: center;
 }
-h3
+
+
 p{
     text-align: center;
 }
+
 body{
     background-image: url(../images/elven-city-coast.jpg);
     background-repeat:no-repeat;
@@ -23,6 +26,7 @@ body{
     font-family: "Arvo", serif;
     box-sizing: border-box;
 }
+
 #header{
     background-color:#2f3e46;
     display:inline-block;
@@ -32,6 +36,7 @@ body{
     width:100%;
     padding:10px;
 }
+
 #footer{
     background-color:#2f3e46;
     height:auto;
@@ -40,6 +45,7 @@ body{
     /* width:100%;
     max-width: 100%; */
 }
+
 /* .flex-container{
     display:flex;
     max-width:max-content;
@@ -75,6 +81,7 @@ body{
     text-align: center;
     box-sizing: border-box;
 } */
+
  .grid-container{
     display:grid;
     max-width:max-content;
@@ -83,6 +90,7 @@ body{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 2fr 4fr 1fr;
  }
+
  .grid-item{
     border-radius: 10px;
     background: rgba(202, 210, 197, 0.85);
@@ -91,6 +99,7 @@ body{
     max-width: 100%;
     text-align: center;
  }
+
 .header{
     border-radius: 10px;
     background: rgba(202, 210, 197, 0.85);
@@ -100,26 +109,31 @@ body{
     text-align: center;
     grid-column-end: span 2;
  }
+
 .line-break{
     width:100%;
 }
+
 .right{
     text-align: right;
 }
+
 .left{
     text-align: left;
 }
+
 .footer{
     border-radius: 10px;
     background: rgba(202, 210, 197, 0.85);
     padding:20px;
     padding-top:10px;
-    max-width: max-content;
+    max-width: 100%;
     text-align: center;
     grid-column-end: span 2;
     align-content: center;
     height:50%;
 }
+
 .button{
     background: #52796f;
     display:inline-block;
