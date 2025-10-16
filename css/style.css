@@ -1,0 +1,132 @@
+h1{
+    color:#eaf4f4;
+    font-family: "Arvo", serif;
+    font-size: 50px;
+}
+h2{
+    font-family: "Arvo", serif;
+    font-size:40px;
+    text-align: center;
+}
+h3
+p{
+    text-align: center;
+}
+body{
+    background-image: url(../images/elven-city-coast.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-attachment:center;
+    background-size:cover;
+    margin:0px;
+    padding:0px;
+    font-family: "Arvo", serif;
+    box-sizing: border-box;
+}
+#header{
+    background-color:#2f3e46;
+    display:inline-block;
+    height:auto;
+    text-align: center;
+    margin:0px;
+    width:100%;
+    padding:10px;
+}
+#footer{
+    background-color:#2f3e46;
+    height:auto;
+    text-align: center;
+    margin:0px;
+    /* width:100%;
+    max-width: 100%; */
+}
+/* .flex-container{
+    display:flex;
+    max-width:max-content;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.flex-item{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:20px;
+    padding-top:10px;
+    max-width: max-content;
+    text-align: center;
+    flex:100%;
+}
+.flex-item-left{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:10px;
+    margin: 10px;
+    margin-left: 0px;
+    flex: 45%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.flex-item-right{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:10px;
+    margin: 10px;
+    margin-right: 0px;
+    flex: 45%;
+    text-align: center;
+    box-sizing: border-box;
+} */
+ .grid-container{
+    display:grid;
+    max-width:max-content;
+    gap:15px;
+    padding:20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 4fr 1fr;
+ }
+ .grid-item{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:20px;
+    padding-top:10px;
+    max-width: 100%;
+    text-align: center;
+ }
+.header{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:20px;
+    padding-top:10px;
+    max-width: max-content;
+    text-align: center;
+    grid-column-end: span 2;
+ }
+.line-break{
+    width:100%;
+}
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+.footer{
+    border-radius: 10px;
+    background: rgba(202, 210, 197, 0.85);
+    padding:20px;
+    padding-top:10px;
+    max-width: max-content;
+    text-align: center;
+    grid-column-end: span 2;
+    align-content: center;
+    height:50%;
+}
+.button{
+    background: #52796f;
+    display:inline-block;
+    border:none;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: "Arvo", serif;
+    color:#eaf4f4;
+}
