@@ -24,11 +24,14 @@ body{
 
 #footer{
     background-color:#2f3e46;
+    display:inline-block;
     height:auto;
     text-align: center;
     margin:0px;
-    /* width:100%;
-    max-width: 100%; */
+    width:100%;
+    padding:10px;
+    color:#eaf4f4;
+    box-sizing: border-box;
 }
 
 #main-body{
