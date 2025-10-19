@@ -31,6 +31,14 @@ body{
     max-width: 100%; */
 }
 
+#main-body{
+    background-image: url(../images/elven-city-coast.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-attachment:center;
+    background-size:cover;
+  }
+  
 .header{
     background-color:#2f3e46;
     display:inline-block;
