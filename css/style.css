@@ -10,7 +10,6 @@ h2{
     text-align: center;
 }
 
-
 p{
     text-align: center;
 }
@@ -108,4 +107,7 @@ body{
     padding:15px;
     border-radius: 2px;
     color:#eaf4f4;
+    min-width:50%;
+    max-width: 50%;
 }
+
