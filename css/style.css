@@ -15,12 +15,12 @@ p{
 }
 
 body{
-    background-color: #52796f;
-    margin:0px;
-    padding:0px;
-    font-family: "Arvo", serif;
-    box-sizing: border-box;
-}
+    background-image: url(../images/elven-city-coast.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-attachment:center;
+    background-size:cover;
+  }
 
 #footer{
     background-color:#2f3e46;
@@ -33,22 +33,13 @@ body{
     color:#eaf4f4;
     box-sizing: border-box;
 }
-
-#main-body{
-    background-image: url(../images/elven-city-coast.jpg);
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-attachment:center;
-    background-size:cover;
-  }
   
 .header{
     background-color:#2f3e46;
-    display:inline-block;
-    height:auto;
+    display:block;
+    width:100%;
     text-align: center;
     margin:0px;
-    width:100%;
     padding:10px;
 }
 
