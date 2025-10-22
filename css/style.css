@@ -20,6 +20,8 @@ body{
     background-attachment:fixed;
     background-attachment:center;
     background-size:cover;
+    font-family: "Arvo", serif;
+    text-align: center;
   }
 
 #footer{
