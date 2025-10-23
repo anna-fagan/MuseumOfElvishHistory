@@ -1,3 +1,15 @@
+body{
+    background-image: url(../images/elven-city-coast.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-attachment:center;
+    background-size:cover;
+    margin:0px;
+    padding:0px;
+    font-family: "Arvo", serif;
+    box-sizing: border-box;
+}
+
 h1{
     color:#eaf4f4;
     font-family: "Arvo", serif;
@@ -11,22 +23,12 @@ h2{
 }
 
 p{
-    text-align: center;
+    text-align:center;
 }
-
-body{
-    background-image: url(../images/elven-city-coast.jpg);
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-attachment:center;
-    background-size:cover;
-    font-family: "Arvo", serif;
-    text-align: center;
-  }
 
 #footer{
     background-color:#2f3e46;
-    display:inline-block;
+    display:block;
     height:auto;
     text-align: center;
     margin:0px;
@@ -37,6 +39,7 @@ body{
 }
   
 .header{
+    display:block;
     background-color:#2f3e46;
     display:block;
     width:100%;
@@ -71,7 +74,7 @@ body{
     max-width: max-content;
     text-align: center;
     grid-column-end: span 2;
- }
+}
 
 .right{
     text-align: right;

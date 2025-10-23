@@ -10,13 +10,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Museum of Elvish History</title>
+    <title>Museum of Elvish History Collections</title>
     <style>
-        #under-header{
-            background-color: rgba(202, 210, 197, 0.85);
-            text-align: center;
-            border-top: 5px ridge #84a98c;
-        }
+      p{
+        text-align: left;
+      }
+      #under-header{
+          background-color: rgba(202, 210, 197, 0.85);
+          text-align: center;
+          border-top: 5px ridge #84a98c;
+          border-bottom: 5px ridge #84a98c;
+          margin-bottom: 20px;
+      }
+      .exhibit-image-container{
+        display:inline-block;
+        height: 600px;
+        margin:10px;
+      }
+      .wrap-column{
+        display: inline-block;
+        column-count: 2;
+        column-gap: 10px;
+        border-left: 2px groove #84a98c;
+        padding-left: 10px;
+      }
+      .exhibit-container{
+        display: flex;
+        border-radius: 10px;
+        background: rgba(202, 210, 197, 0.85);
+        padding:20px;
+        padding-top:10px;
+        max-width: 100%;
+        margin:15px;
+      }
     </style>
   </head>
   <body>
@@ -30,5 +56,64 @@
         <button onclick class="button">Archaeology</button>
         <button onclick class="button">Anthropology</button>
         <button onclick class="button">History</button>
+      </div>
+      <div class="exhibit-container">
+        <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+        <div class="wrap-column">
+          <h2>The Verdant Blade</h2>
+          <p>Name: Verdant Blade (“Sylveneth”)</p>
+          <p>Material: Mithril-steel alloy with integrated root veins of living wood (species undetermined)</p>
+          <p>Size/Weight/Shape: 84 cm long, leaf-tapered form, lightweight (2.3 kg), flexible spine</p>
+          <p>Estimated Age: 2,800 years (late Era of Confluence; metallurgical dating + growth ring analysis)</p>
+          <p>Preservation State: Blade intact, organic handle partially fossilized</p>
+          <p>Location Found: Forest barrow near the convergence of the Eryndor rivers</p>
+
+          <p>Likely Purpose: Ceremonial or symbolic weapon representing unity of forest and forge</p>
+          <p>Evidence of Use: Microscopic scratches indicate ritual cutting, not combat; traces of resin and sap along edge</p>
+          <p>Manufacture Clues: Mithril forged at low temperature; living wood grafted through a fusion ritual lost to history</p>
+
+          <p>Found With: Fragments of silver-etched armor and a small burial mound</p>
+          <p>Burial or Habitat Context: Tomb of a forest sentinel; accompanied by offerings of amber and feather bundles</p>
+          <p>Symbolism: “Growth through blade” — mythic representation of Elvish stewardship rather than conquest</p>
+          <p>Comparison: Related designs observed in Guardian Blades of the Myrval archives, though this piece uniquely shows botanical integration</p>
+        </div>
+      </div>
+      <div class="exhibit-container">
+        <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container">
+        <div class="wrap-column">
+          <h2>The Resonant Disk</h2>
+          <p>Name: Resonant Disk of Namarien</p>
+          <p>Material: Polished basalt inset with iridescent shell fragments</p>
+          <p>Size/Weight/Shape: Circular, 30 cm diameter, 3 cm thick; heavy (7.4 kg)</p>
+          <p>Estimated Age: ~4,100 years (carbon residue from hearth layer indicates Early Lamentation Period)</p>
+          <p>Preservation State: Partial fracturing; acoustic core intact</p>
+          <p>Location Found: Coastal ruins of Namarien, half-buried in silt near an ancient amphitheater</p>
+          <p>Likely Purpose: Acoustic artifact — possibly used to amplify or capture song</p>
+          <p>Evidence of Use: Interior concavity shows heat marks and microabrasion consistent with rhythmic vibration</p>
+          <p>Manufacture Clues: Embedded nacre arranged in harmonic spirals; suggests knowledge of resonant geometry far advanced for period</p>
+          <p>Found With: Broken lyres, seashell amulets, and one humanoid skeleton (hands positioned near disk edge)</p>
+          <p>Burial or Habitat Context: Found within collapsed performance space overlooking the sea</p>
+          <p>Symbolism: May represent the “Sea’s Memory,” a mythic motif linking sound, tide, and remembrance</p>
+          <p>Comparison: Conceptually akin to later “Echo Stones” of the Lirae Coast, but predates them by over a millennium</p>
+        </div>
+      </div>
+      <div class="exhibit-container">
+        <img src="../images/exhibits/luminous-chalice.jpg" alt="An image of a iridescent blue chalice with silver filagree" class="exhibit-image-container">
+        <div class="wrap-column">
+          <h2>The Luminous Chalice</h2>
+          <p>Name: Luminous Chalice of Lethariel</p>
+          <p>Material: Crystalline glass infused with moon-silver filigree</p>
+          <p>Size/Weight/Shape: 22 cm tall, stemmed bowl form, delicately fluted lip, weightless to touch due to levicite content</p>
+          <p>Estimated Age: ~3,200 years (pre-Divergence era, inferred from contextual strata)</p>
+          <p>Preservation State: Nearly pristine; minor tarnish along filigree edge</p>
+          <p>Location Found: Subterranean chamber beneath the ruins of Lethariel’s temple, Northern Glades (42°N, 13°E)</p>
+          <p>Likely Purpose: Ceremonial vessel used in moonlit rites of remembrance</p>
+          <p>Evidence of Use: Trace residue of dried nectar and fine pollen consistent with Silver Bloom (a sacred Elvish night flower)</p>
+          <p>Manufacture Clues: Lathed crystal core fused with etched silver overlay; microscopic runes align to lunar cycle—possibly reactive to light phases</p>
+          <p>Found With: Three broken diadems and a cluster of petrified blossoms</p>
+          <p>Burial or Habitat Context: Interred within a ritual alcove facing an open skylight shaft</p>
+          <p>Symbolism: Represents “reflected memory” — Elves believed liquids held transient echoes of the departed</p>
+          <p>Comparison: Similar optical crafting methods appear in the Moonwell Goblets of the Western Sanctum</p>
+        </div>
       </div>
   </body>
