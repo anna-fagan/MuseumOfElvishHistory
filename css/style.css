@@ -106,6 +106,9 @@ p{
     font-family: "Arvo", serif;
     color:#eaf4f4;
     margin:10px;
+    padding:10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .quote{
