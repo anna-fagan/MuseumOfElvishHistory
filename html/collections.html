@@ -24,28 +24,66 @@
       }
       .exhibit-image-container{
         display:inline-block;
-        height: 500px;
-        margin:10px;
+        height: 550px;
+        margin-left:15px;
+        margin-right: 15px;
+        margin-top: auto;
+        margin-bottom: auto;
       }
-      .wrap-column{
-        display: inline-block;
-        column-count: 2;
-        column-gap: 10px;
+
+      .column-right{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: max-content max-content;
         border-left: 2px groove #84a98c;
         padding-left: 10px;
+        /* border: double cornflowerblue; */
       }
-      .exhibit-container{
-        display: flex;
+
+      .column-left{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: max-content max-content;
+        border-right: 2px groove #84a98c;
+        padding-right: 10px;
+        /* border: double cornflowerblue; */
+      }
+
+      .exhibit-container-left{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr;
         border-radius: 10px;
         background: rgba(202, 210, 197, 0.85);
-        padding:20px;
+        padding:15px;
         padding-top:10px;
         max-width: 100%;
         margin:15px;
       }
+
+      .exhibit-container-right{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 1fr;
+        border-radius: 10px;
+        background: rgba(202, 210, 197, 0.85);
+        padding:15px;
+        padding-top:10px;
+        max-width: 100%;
+        margin:15px;
+      }
+
       .title{
         text-align: center;
         grid-column-end: span 2;
+        border-bottom: 2px groove #84a98c;
+        /* border: double cornflowerblue; */
+
+      }
+      .description{
+        grid-row-start: 2;
+        margin:15px;
+        /* border: double cornflowerblue; */
       }
     </style>
   </head>
@@ -55,6 +93,7 @@
         <button onclick="location.href='../index.html'" class="button">Home</button>
         <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
         <button onclick="location.href='../html/collections.html'" class="button">Collections</button>
+        <button onclick="location.href='../html/shop.html'" class="button">Shop</button>
     </div>
     <div id="under-header">
       <button onclick="showSection('archaeology')" class="button">Archaeology</button>
@@ -63,131 +102,213 @@
     </div>
     <!-- Archeology page begin -->
     <section id="archaeology" class="collection-section" style="display:none;">
-      <div class="exhibit-container">
+      <div class="exhibit-container-left">
         <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
-        <div class="wrap-column">
+        <div class="column-right">
           <div class="title">
             <h2>The Verdant Blade</h2>
           </div>
-          <p>Name: Verdant Blade (“Sylveneth”)</p>
-          <p>Material: Mithril-steel alloy with integrated root veins of living wood (species undetermined)</p>
-          <p>Size/Weight/Shape: 84 cm long, leaf-tapered form, lightweight (2.3 kg), flexible spine</p>
-          <p>Estimated Age: 2,800 years (late Era of Confluence; metallurgical dating + growth ring analysis)</p>
-          <p>Preservation State: Blade intact, organic handle partially fossilized</p>
-          <p>Location Found: Forest barrow near the convergence of the Eryndor rivers</p>
-
-          <p>Likely Purpose: Ceremonial or symbolic weapon representing unity of forest and forge</p>
-          <p>Evidence of Use: Microscopic scratches indicate ritual cutting, not combat; traces of resin and sap along edge</p>
-          <p>Manufacture Clues: Mithril forged at low temperature; living wood grafted through a fusion ritual lost to history</p>
-
-          <p>Found With: Fragments of silver-etched armor and a small burial mound</p>
-          <p>Burial or Habitat Context: Tomb of a forest sentinel; accompanied by offerings of amber and feather bundles</p>
-          <p>Symbolism: “Growth through blade” — mythic representation of Elvish stewardship rather than conquest</p>
-          <p>Comparison: Related designs observed in Guardian Blades of the Myrval archives, though this piece uniquely shows botanical integration</p>
+          <div class="description">
+            <p><b>Name:</b> Verdant Blade (“Sylveneth”)</p>
+            <p><b>Material:</b> Mithril-steel alloy with integrated root veins of living wood 
+              (species undetermined)</p>
+            <p><b>Size/Weight/Shape:</b> 84 cm long, leaf-tapered form, lightweight 
+              (2.3 kg), flexible spine</p>
+            <p><b>Physical Properties:</b> Mithril-steel and living-wood composite weapon, silver-green surface veined with mineralized root 
+              tissue that glows softly under moonlight.</p>
+            <p><b>Estimated Age:</b> 2,800 years (late Era of Confluence; 
+              metallurgical dating + growth ring analysis)</p>
+            <p><b>Preservation State:</b> Blade intact, organic handle partially fossilized</p>
+            <p><b>Location Found:</b> Forest barrow near the convergence of the Eryndor rivers</p>
+          </div>
+          <div class="description">
+            <p><b>Likely Purpose:</b> Ceremonial or symbolic weapon representing unity of 
+              forest and forge</p>
+            <p><b>Evidence of Use:</b> Microscopic scratches indicate ritual cutting, 
+              not combat; traces of resin and sap along edge</p>
+            <p><b>Manufacture Clues:</b> Mithril forged at low temperature; living wood 
+              grafted through a fusion ritual lost to history</p>
+            <p><b>Found With:</b> Fragments of silver-etched armor and a small burial mound</p>
+            <p><b>Burial or Habitat Context:</b> Tomb of a forest sentinel; 
+              accompanied by offerings of amber and feather bundles</p>
+            <p><b>Symbolism:</b> “Growth through blade” — mythic representation 
+              of Elvish stewardship rather than conquest</p>
+            <p><b>Comparison:</b> Related designs observed in Guardian Blades of 
+              the Myrval archives, though this piece uniquely shows botanical integration</p>
+          </div>
         </div>
       </div>
-      <div class="exhibit-container">
+      <div class="exhibit-container-right">
+        <div class="column-left">
+          <div class="title">
+            <h2>The Resonant Disk</h2>
+          </div>
+          <div class="description">
+            <p><b>Name:</b> Resonant Disk of Namarien</p>
+            <p><b>Material:</b> Polished basalt inset with iridescent shell fragments</p>
+            <p><b>Size/Weight/Shape:</b> Circular, 30 cm diameter, 3 cm thick; heavy (7.4 kg)</p>
+            <p><b>Physical Properties:</b> Basalt inlaid with iridescent shell spirals that 
+              shimmer blue-green under shifting light; dense yet acoustically responsive. 
+              Micro-fractures consistent with vibrational use.</p>
+            <p><b>Estimated Age:</b> ~4,100 years (carbon residue from hearth layer indicates Early Lamentation Period)</p>
+            <p><b>Preservation State:</b> Partial fracturing; acoustic core intact</p>
+            <p><b>Location Found:</b> Coastal ruins of Namarien, half-buried in silt near an 
+              ancient amphitheater</p>
+            </div>
+            <div class="description">
+            <p><b>Likely Purpose:</b> Acoustic artifact — possibly used to amplify or capture song</p>
+            <p><b>Evidence of Use:</b> Interior concavity shows heat marks and microabrasion 
+              consistent with rhythmic vibration</p>
+            <p><b>Manufacture Clues:</b> Embedded nacre arranged in harmonic spirals; 
+              suggests knowledge of resonant geometry far advanced for period</p>
+            <p><b>Found With:</b> Broken lyres, seashell amulets, and one humanoid skeleton 
+              (hands positioned near disk edge)</p>
+            <p><b>Burial or Habitat Context:</b> Found within collapsed performance space 
+              overlooking the sea</p>
+            <p><b>Symbolism:</b> May represent the “Sea’s Memory,” a mythic motif linking sound, 
+              tide, and remembrance</p>
+            <p><b>Comparison:</b> Conceptually akin to later “Echo Stones” of the Lirae Coast, 
+              but predates them by over a millennium</p>
+          </div>
+        </div>
         <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container">
-        <div class="wrap-column">
-          <h2>The Resonant Disk</h2>
-          <p>Name: Resonant Disk of Namarien</p>
-          <p>Material: Polished basalt inset with iridescent shell fragments</p>
-          <p>Size/Weight/Shape: Circular, 30 cm diameter, 3 cm thick; heavy (7.4 kg)</p>
-          <p>Estimated Age: ~4,100 years (carbon residue from hearth layer indicates Early Lamentation Period)</p>
-          <p>Preservation State: Partial fracturing; acoustic core intact</p>
-          <p>Location Found: Coastal ruins of Namarien, half-buried in silt near an ancient amphitheater</p>
-          <p>Likely Purpose: Acoustic artifact — possibly used to amplify or capture song</p>
-          <p>Evidence of Use: Interior concavity shows heat marks and microabrasion consistent with rhythmic vibration</p>
-          <p>Manufacture Clues: Embedded nacre arranged in harmonic spirals; suggests knowledge of resonant geometry far advanced for period</p>
-          <p>Found With: Broken lyres, seashell amulets, and one humanoid skeleton (hands positioned near disk edge)</p>
-          <p>Burial or Habitat Context: Found within collapsed performance space overlooking the sea</p>
-          <p>Symbolism: May represent the “Sea’s Memory,” a mythic motif linking sound, tide, and remembrance</p>
-          <p>Comparison: Conceptually akin to later “Echo Stones” of the Lirae Coast, but predates them by over a millennium</p>
-        </div>
       </div>
-      <div class="exhibit-container">
+      <div class="exhibit-container-left">
         <img src="../images/exhibits/luminous-chalice.jpg" alt="An image of a iridescent blue chalice with silver filagree" class="exhibit-image-container">
-        <div class="wrap-column">
-          <h2>The Luminous Chalice</h2>
-          <p>Name: Luminous Chalice of Lethariel</p>
-          <p>Material: Crystalline glass infused with moon-silver filigree</p>
-          <p>Size/Weight/Shape: 22 cm tall, stemmed bowl form, delicately fluted lip, weightless to touch due to levicite content</p>
-          <p>Estimated Age: ~3,200 years (pre-Divergence era, inferred from contextual strata)</p>
-          <p>Preservation State: Nearly pristine; minor tarnish along filigree edge</p>
-          <p>Location Found: Subterranean chamber beneath the ruins of Lethariel’s temple, Northern Glades (42°N, 13°E)</p>
-          <p>Likely Purpose: Ceremonial vessel used in moonlit rites of remembrance</p>
-          <p>Evidence of Use: Trace residue of dried nectar and fine pollen consistent with Silver Bloom (a sacred Elvish night flower)</p>
-          <p>Manufacture Clues: Lathed crystal core fused with etched silver overlay; microscopic runes align to lunar cycle—possibly reactive to light phases</p>
-          <p>Found With: Three broken diadems and a cluster of petrified blossoms</p>
-          <p>Burial or Habitat Context: Interred within a ritual alcove facing an open skylight shaft</p>
-          <p>Symbolism: Represents “reflected memory” — Elves believed liquids held transient echoes of the departed</p>
-          <p>Comparison: Similar optical crafting methods appear in the Moonwell Goblets of the Western Sanctum</p>
+        <div class="column-right">
+          <div class="title">
+            <h2>The Luminous Chalice</h2>
+          </div>
+          <div class="description">
+            <p><b>Name:</b> Luminous Chalice of Lethariel</p>
+            <p><b>Material:</b> Crystalline glass infused with moon-silver filigree</p>
+            <p><b>Size/Weight/Shape:</b> 22 cm tall, stemmed bowl form, delicately fluted lip, weightless to touch due to levicite content</p>
+            <p><b>Physical Properties:</b> Crystalline vessel of near-weightless levicite glass infused with moon-silver filigree.
+              The surface remains pristine save for faint tarnish along the rim, and under 
+              moonlight, microscopic runes etched in the filigree emit a soft luminescence, 
+              confirming its dual optical and ritual properties</p>
+            <p><b>Estimated Age:</b> ~3,200 years (pre-Divergence era, inferred from contextual strata)</p>
+            <p><b>Preservation State:</b> Nearly pristine; minor tarnish along filigree edge</p>
+            <p><b>Location Found:</b> Subterranean chamber beneath the ruins of Lethariel’s 
+              temple, Northern Glades (42°N, 13°E)</p>
+          </div>
+          <div class="description">
+            <p><b>Likely Purpose:</b> Ceremonial vessel used in moonlit rites of remembrance</p>
+            <p><b>Evidence of Use:</b> Trace residue of dried nectar and fine pollen consistent 
+              with Silver Bloom (a sacred Elvish night flower)</p>
+            <p><b>Manufacture Clues:</b> Lathed crystal core fused with etched silver 
+              overlay; microscopic runes align to lunar cycle—possibly reactive to light phases</p>
+            <p><b>Found With:</b> Three broken diadems and a cluster of petrified blossoms</p>
+            <p><b>Burial or Habitat Context:</b> Interred within a ritual alcove facing an 
+              open skylight shaft</p>
+            <p><b>Symbolism:</b> Represents “reflected memory” — Elves believed 
+              liquids held transient echoes of the departed</p>
+            <p><b>Comparison:</b> Similar optical crafting methods appear in the Moonwell 
+              Goblets of the Western Sanctum</p>
+          </div>
         </div>
       </div>
     </section>
     <!-- End of archeology section -->
     <!-- Begin Anthropology Section -->
     <section id="anthropology" class="collection-section" style="display:none;">
-      <div class="exhibit-container">
+      <div class="exhibit-container-left">
         <img src="../images/exhibits/auric-spine-of-lethandrel.jpg" alt="An image of a spine amongst dirt" class="exhibit-image-container">
-        <div class="wrap-column">
-          <h2>Auric Spine of Lethandrel</h2>
-          <p>Name: Auric Spine of Lethandrel</p>
-          <p>Material: Ossified vertebral column infused with trace gold filaments</p>
-          <p>Size/Weight/Shape: 48 cm segment, slender curvature, weight 1.6 kg</p>
-          <p>Estimated Age: ~4,000 years (Elder Lineage period, dated by auric isotope residue)</p>
-          <p>Preservation State: Pristine; connective nodules mineralized, metallic inclusions stable</p>
-          <p>Location Found: Chamber of Veins, beneath the collapsed sanctum of Lethandrel</p>
-          <p>Likely Purpose: Biological remains; believed to have belonged to a High Voice Priestess</p>
-          <p>Evidence of Use: Thin streaks of gold embedded along neural canal — possibly ceremonial augmentation to enhance resonance</p>
-          <p>Manufacture Clues: None artificial, though gold inclusions appear biogenic (grown within bone structure)</p>
-          <p>Found With: Bronze-tuned chime fragments and woven hair cords</p>
-          <p>Burial or Habitat Context: Suspended ossuary chamber hung from ceiling beams</p>
-          <p>Symbolism: The spine was thought to carry “song memory” — the divine frequencies of speech and magic</p>
-          <p>Comparison: Resonant vertebrae of similar form appear in the Silent Choir Tombs of the Inner Glades</p>
+        <div class="column-right">
+          <div class="title">
+            <h2>Auric Spine of Lethandrel</h2>
+          </div>
+          <div class="description">
+            <p><b>Name:</b> Auric Spine of Lethandrel</p>
+            <p><b>Material:</b> Ossified vertebral column infused with trace gold filaments</p>
+            <p><b>Size/Weight/Shape:</b> 48 cm segment, slender curvature, weight 1.6 kg</p>
+            <p><b>Physical Properties:</b> Ossified vertebrae. The bone’s surface exhibits a 
+              pale ivory sheen with metallic iridescence where auric inclusions surface, and 
+              mineral scans indicate stable biogenic gold growth rather than applied gilding. 
+              Vertebrae remain structurally pristine.</p>
+            <p><b>Estimated Age:</b> ~4,000 years (Elder Lineage period, dated by 
+              auric isotope residue)</p>
+            <p><b>Preservation State:</b> Pristine; connective nodules mineralized, 
+              metallic inclusions stable</p>
+            <p><b>Location Found:</b> Chamber of Veins, beneath the collapsed sanctum 
+              of Lethandrel</p>
+          </div>
+          <div class="description">
+            <p><b>Likely Purpose:</b> Biological remains; believed to have belonged to a 
+              High Voice Priestess</p>
+            <p><b>Evidence of Use:</b> Thin streaks of gold embedded along neural canal — 
+              possibly ceremonial augmentation to enhance resonance</p>
+            <p><b>Manufacture Clues:</b> None artificial, though gold inclusions appear 
+              biogenic (grown within bone structure)</p>
+            <p><b>Found With:</b> Bronze-tuned chime fragments and woven hair cords</p>
+            <p><b>Burial or Habitat Context:</b> Suspended ossuary chamber hung from 
+              ceiling beams</p>
+            <p><b>Symbolism:</b> The spine was thought to carry “song memory” — the 
+              divine frequencies of speech and magic</p>
+            <p><b>Comparison:</b> Resonant vertebrae of similar form appear in the 
+              Silent Choir Tombs of the Inner Glades</p>
+          </div>
         </div>
       </div>
-      <div class="exhibit-container">
-        <img src="../images/exhibits/the-femur-of-the-twilight-runner.jpg" alt="An image of a femur with slight crystal inlay and gold on a sand background"
+      <div class="exhibit-container-right">
+        <div class="column-left">
+          <div class="title">
+            <h2>Femur of the Twilight Runner</h2>
+          </div>
+          <div class="description">
+            <p><b>Name:</b> Femur of the Twilight Runner</p>
+            <p><b>Material:</b> Dense elvish cortical bone with traces of quartz crystallization</p>
+            <p><b>Size/Weight/Shape:</b> 67 cm long; elongated and aerodynamic, slight lateral twist</p>
+            <p><b>Physical Properties:</b> Elvish bone with a slight lateral twist, composed of dense cortical tissue 
+              interlaced with fine quartz crystallization. Smooth, aerodynamic contour suggestive of enhanced 
+              locomotive efficiency. Microscopic striations mark repetitive impact wear.</p>
+            <p><b>Estimated Age:</b> ~2,900 years (Late Confluence Era; environmental strata verified)</p>
+            <p><b>Preservation State:</b> Partial; proximal end fractured</p>
+            <p><b>Location Found:</b> Dune grave near the Sapphire Flats, West of Eryndor</p>
+          </div>
+          <div class="description">
+            <p><b>Likely Purpose:</b> Anatomical — possibly a member of an Elvish courier caste adapted for long-distance running</p>
+            <p><b>Evidence of Use:</b> Surface micro-scratches consistent with repetitive impact, suggesting high endurance locomotion</p>
+            <p><b>Manufacture Clues:</b> None artificial; quartz integration suggests physiological adaptation for desert resonance</p>
+            <p><b>Found With:</b> Shattered anklet bells and sand-crusted bone flute fragments</p>
+            <p><b>Burial or Habitat Context:</b> Shallow grave beneath hardened dunes</p>
+            <p><b>Symbolism:</b> “The Messenger Between Winds” — these Elves were said to carry whispers between distant enclaves</p>
+            <p><b>Comparison:</b> Comparable limb morphologies found in Elarien’s Drystep remains, though less mineralized</p>
+          </div> 
+        </div>
+        <img src="../images/exhibits/the-femur-of-the-twilight-runner-2.jpg" alt="An image of a femur with slight crystal inlay and gold on a sand background"
           class="exhibit-image-container">
-        <div class="wrap-column">
-          <h2>Femur of the Twilight Runner</h2>
-          <p>Name: Femur of the Twilight Runner</p>
-          <p>Material: Dense elvish cortical bone with traces of quartz crystallization</p>
-          <p>Size/Weight/Shape: 67 cm long; elongated and aerodynamic, slight lateral twist</p>
-          <p>Estimated Age: ~2,900 years (Late Confluence Era; environmental strata verified)</p>
-          <p>Preservation State: Partial; proximal end fractured</p>
-          <p>Location Found: Dune grave near the Sapphire Flats, West of Eryndor</p>
-          <p>Likely Purpose: Anatomical — possibly a member of an Elvish courier caste adapted for long-distance running</p>
-          <p>Evidence of Use: Surface micro-scratches consistent with repetitive impact, suggesting high endurance locomotion</p>
-          <p>Manufacture Clues: None artificial; quartz integration suggests physiological adaptation for desert resonance</p>
-          <p>Found With: Shattered anklet bells and sand-crusted bone flute fragments</p>
-          <p>Burial or Habitat Context: Shallow grave beneath hardened dunes</p>
-          <p>Symbolism: “The Messenger Between Winds” — these Elves were said to carry whispers between distant enclaves</p>
-          <p>Comparison: Comparable limb morphologies found in Elarien’s Drystep remains, though less mineralized</p>
-        </div>
       </div>
-      <div class="exhibit-container">
-        <div class="title">
-          <h2>The Veiled Skull of Maerion</h2>
-        </div>
+      <div class="exhibit-container-left">
         <img src="../images/exhibits/veiled-skull-of-maerion.jpg" alt="An elvish skull covered in rune marks"
           class="exhibit-image-container">
-        <div class="wrap-column">
-          
-          <p>Name: The Veiled Skull of Maerion</p>
-          <p>Material: Bone covered by preserved membrane of silicate and luminescent residue</p>
-          <p>Size/Weight/Shape: Skull, 22 cm in length, elongated zygomatic arches, delicate jawline</p>
-          <p>Estimated Age: ~3,600 years (Era of Isolation, confirmed through silica diffusion)</p>
-          <p>Preservation State: Intact; facial surfaces semi-translucent under light</p>
-          <p>Location Found: Coastal crypt near the Tidesong Caverns</p>
-          <p>Likely Purpose: Burial relic of a Seer — cranial membranes preserved through ritual sand-glazing</p>
-          <p>Evidence of Use: Faint rune imprints along cranial sutures; microscopic pigment consistent with moon-ink (used for spiritual marking)</p>
-          <p>Manufacture Clues: Combination of natural and ritual preservation; silica formed through deliberate burial in tidal glass sands</p>
-          <p>Found With: Fragmented conch amulet and glass beads arranged in spiral pattern</p>
-          <p>Burial or Habitat Context: Shallow crypt chamber flooded cyclically by the tide</p>
-          <p>Symbolism: The “Veiled” were said to see through death into the dreams of the living — their skulls retained trace luminescence of the spirit realm</p>
-          <p>Comparison: Related glazing technique recorded in the Ashen Shores necropolis, though rarely this complete</p>
+        <div class="column-right">
+          <div class="title">
+            <h2>The Veiled Skull of Maerion</h2>
+          </div>
+          <div class="description">
+            <p>Name: The Veiled Skull of Maerion</p>
+            <p>Material: Bone covered by preserved membrane of silicate and luminescent residue</p>
+            <p>Size/Weight/Shape: Skull, 22 cm in length, elongated zygomatic arches, delicate jawline</p>
+            <p><b>Physical Properties:</b> Elvish bone overlaid by a thin silicate membrane imbued 
+              with faint luminescent residue. Its surface is semi-translucent, allowing the 
+              pale ivory bone beneath to glimmer through the glassy layer. The skull remains intact and acoustically resonant, 
+              emitting a faint harmonic vibration when exposed to low-frequency sound — a property thought 
+              to arise from the fused interface of bone and vitrified silica formed by ancient tidal burial 
+              processes.</p>
+            <p>Estimated Age: ~3,600 years (Era of Isolation, confirmed through silica diffusion)</p>
+            <p>Preservation State: Intact; facial surfaces semi-translucent under light</p>
+            <p>Location Found: Coastal crypt near the Tidesong Caverns</p>
+          </div>
+          <div class="description">
+            <p>Likely Purpose: Burial relic of a Seer — cranial membranes preserved through ritual sand-glazing</p>
+            <p>Evidence of Use: Faint rune imprints along cranial sutures; microscopic pigment consistent with moon-ink (used for spiritual marking)</p>
+            <p>Manufacture Clues: Combination of natural and ritual preservation; silica formed through deliberate burial in tidal glass sands</p>
+            <p>Found With: Fragmented conch amulet and glass beads arranged in spiral pattern</p>
+            <p>Burial or Habitat Context: Shallow crypt chamber flooded cyclically by the tide</p>
+            <p>Symbolism: The “Veiled” were said to see through death into the dreams of the living — their skulls retained trace luminescence of the spirit realm</p>
+            <p>Comparison: Related glazing technique recorded in the Ashen Shores necropolis, though rarely this complete</p>
+          </div>
         </div>
       </div>
     </section>

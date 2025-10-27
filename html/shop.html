@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <title>Museum of Elvish History Souvenir Shop</title>
   <style>
-       .shop-container {
+    .shop-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -20,8 +20,8 @@
 
     .souvenir-item {
       width: 250px;
-      background-color: #ffffff;
-      border: 2px solid #222;
+      background-color: #c9d8cc;
+      border: 2px solid #2f3e46;
       padding: 10px;
       border-radius: 6px;
       position: relative;
@@ -42,14 +42,14 @@
       width: 100%;
       padding: 8px;
       font-weight: bold;
-      background-color: #30336b;
-      color: white;
+      background-color: #2f3e46;
+      color: #cad2c5;
       border: none;
       cursor: pointer;
     }
 
     .souvenir-item button:hover {
-      background-color: #130f40;
+      background-color: #5d7987;
     }
 
     /* Modal */
@@ -61,13 +61,13 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(202, 210, 197, 0.85);
     }
 
     .modal-content {
       margin: 10% auto;
       padding: 20px;
-      background-color: #fff;
+      background-color: #cad2c5;
       width: 60%;
       border-radius: 8px;
     }
@@ -81,27 +81,101 @@
       float: right;
       font-size: 1.2rem;
       cursor: pointer;
-      color: #444;
+      color: #2f3e46;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+      cursor: pointer;
+    }
+
+    .tooltiptext {
+      visibility: hidden;
+      width: 130px;
+      background-color: rgba(202, 210, 197);
+      color: #2f3e46;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      left: 50px;
+      z-index: 1;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
     }
   </style>
 </head>
 
 <body>
-  <header>
+  <header class="header">
     <h1>Souvenir Shop</h1>
+    <button onclick="location.href='../index.html'" class="button">Home</button>
+    <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
+    <button onclick="location.href='../html/collections.html'" class="button">Collections</button>
+    <button onclick="location.href='../html/shop.html'" class="button">Shop</button>
   </header>
 
   <div class="shop-container">
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
-    <div class="souvenir-item" data-id="item001">
-      <img src="" alt="" onclick="openModal(this)" />
-      <h3>Listing Title</h3>
-      <p>Listing Description</p>
-      <p><strong>Price:</strong> $00.00</p>
-      <button onclick="addToCart('item001')">Add [Replace with Item Name] to Cart</button>
+    <div class="souvenir-item" data-id="echo-disk">
+      <div class="tooltip">
+        <img src="../images/shop/echo-disk-pendant.jpg" alt="Echo disk pendant" onclick="openModal(this)" />
+        <span class="tooltiptext">A whisper of the sea’s memory</span>
+      </div>
+      <h3>Echo Disk Pendant</h3>
+      <p>Wear a whisper of the sea’s memory. Inspired by the ancient Resonant Disk of Namarien, 
+        this pendant features a basalt composite etched with iridescent shell spirals that 
+        shimmer with each movement. Suspended on a fine leather rope and presented on a parchment 
+        card inscribed in Elvish runes, it captures the harmony of ocean and song once revered by 
+        the coastal elves.</p>
+      <p><strong>Price:</strong> $25.00</p>
+      <button onclick="addToCart('echo-disk')">Add Echo Disk Pendant to Cart</button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
+    <div class="souvenir-item" data-id="elven-bangles">
+      <div class="tooltip">
+        <img src="../images/shop/elven-bangals.jpg" alt="Elven bangles" onclick="openModal(this)" />
+        <span class="tooltiptext">Echoes from the hands that shaped time</span>
+      </div>
+      <h3>Elven Memory Bangles</h3>
+      <p>Echoes from the hands that shaped time. This trio of silver-plated bangles 
+        features translucent glass inlays etched with faint Elvish runes symbolizing memory, 
+        renewal, and truth. Elegant, timeless, and softly luminous under light, they evoke the 
+        quiet grace of ancient craftsmanship—perfect for those who carry history close to the skin.</p>
+      <p><strong>Price:</strong> $15.25</p>
+      <button onclick="addToCart('elven-bangles')">Add Elven Memory Bengles to Cart</button>
+    </div>
+    <div class="souvenir-item" data-id="mini-chalice">
+      <div class="tooltip">
+        <img src="../images/shop/minature-luminous-chalice.jpg" alt="A mini luminous chalice" onclick="openModal(this)" />
+        <span class="tooltiptext">Capture a fragment of moonlit ritual</span>
+      </div>
+      <h3>Minature Luminous Chalice</h3>
+      <p>Capture a fragment of moonlit ritual. This hand-crafted replica of the Luminous 
+        Chalice of Lethariel is cast in translucent resin and traced with silver filigree, 
+        echoing the radiance of its ancient counterpart. When placed under soft light, it glows 
+        with subtle blue hues — a gentle reminder of the Elven rites of remembrance and reflection. 
+        Perfect as a keepsake or altar piece for those who honor the quiet beauty of memory.</p>
+      <p><strong>Price:</strong> $75.00</p>
+      <button onclick="addToCart('mini-chalice')">Add [Replace with Item Name] to Cart</button>
+    </div>
+    <div class="souvenir-item" data-id="moonflower-incense">
+      <div class="tooltip">
+        <img src="../images/shop/moonflower-incense-holder.jpg" alt="Moonflower incense holder" onclick="openModal(this)" />
+        <span class="tooltiptext">Let your offerings rise on petals of light</span>
+      </div>
+      <h3>Moonflower Incense Holder</h3>
+      <p>Let your offerings rise on petals of light. Inspired by the sacred blooms of the 
+        Elven night gardens, this ceramic incense holder is shaped like a partially opened 
+        moonflower, its silver-glazed petals designed to release gentle streams of smoke through 
+        delicate openings. Each piece is hand-finished with subtle iridescence, glowing softly in 
+        candlelight — a tranquil companion for meditation, remembrance, or ritual.</p>
+      <p><strong>Price:</strong> $31.00</p>
+      <button onclick="addToCart('moonflower-incense')">Add Moonflower Incense Holder to Cart</button>
+    </div>
 
   </div>
 
