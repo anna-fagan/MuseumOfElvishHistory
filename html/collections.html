@@ -15,12 +15,14 @@
       p{
         text-align: left;
       }
+
       #under-header{
           background-color: rgba(202, 210, 197, 0.85);
           text-align: center;
           border-top: 5px ridge #84a98c;
           border-bottom: 5px ridge #84a98c;
           margin-bottom: 20px;
+          width:100%;
       }
       .exhibit-image-container{
         display:inline-block;
@@ -47,6 +49,15 @@
         border-right: 2px groove #84a98c;
         padding-right: 10px;
         /* border: double cornflowerblue; */
+      }
+
+      .title-container{
+        background: rgba(202, 210, 197, 0.85);
+        padding:15px;
+        padding-top:10px;
+        max-width: 100%;
+        margin:15px;
+        text-align: center;
       }
 
       .exhibit-container-left{
@@ -102,6 +113,9 @@
     </div>
     <!-- Archeology page begin -->
     <section id="archaeology" class="collection-section" style="display:none;">
+      <div class="title-container">
+        <h1>Archaeology</h1>
+      </div>
       <div class="exhibit-container-left">
         <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
         <div class="column-right">
@@ -212,6 +226,9 @@
     <!-- End of archeology section -->
     <!-- Begin Anthropology Section -->
     <section id="anthropology" class="collection-section" style="display:none;">
+      <div class="title-container">
+        <h1>Anthropology</h1>
+      </div>
       <div class="exhibit-container-left">
         <img src="../images/exhibits/auric-spine-of-lethandrel.jpg" alt="An image of a spine amongst dirt" class="exhibit-image-container">
         <div class="column-right">
@@ -312,6 +329,11 @@
         </div>
       </div>
     </section>
+    <div class="footer">
+      <p>This is a ficticious website created purely for academic reasons. This site was created by a human.
+        The content on this site was concieved by a human and created by AI. The images were created by AI and
+        curated, edited, reviewed, verified, calibrated, and augmented by a human.</p>
+    </div>
     <!-- Start Code Section -->
     <script>
       function showSection(section) {
