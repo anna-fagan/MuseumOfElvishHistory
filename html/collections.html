@@ -97,9 +97,65 @@
         margin:15px;
         /* border: double cornflowerblue; */
       }
+
+      .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 62, 70, 0.85);
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      padding: 20px;
+      background-color: #cad2c5;
+      width: 60%;
+      border-radius: 8px;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+    }
+
+    .close-modal {
+      float: right;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #2f3e46;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+      cursor: pointer;
+    }
+
+    .tooltiptext {
+      visibility: hidden;
+      width: 130px;
+      background-color: rgba(202, 210, 197);
+      color: #2f3e46;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      left: 50px;
+      z-index: 1;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    .modal .left-text{
+      text-align: left;
+    }
     </style>
   </head>
-  <body>
+  <main>
     <div class="header">
         <h1>Museum of Elvish History</h1>
         <button onclick="location.href='../index.html'" class="button">Home</button>
@@ -117,8 +173,9 @@
       <div class="title-container">
         <h1>Archaeology</h1>
       </div>
-      <div class="exhibit-container-left">
-        <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+      <div class="exhibit-container-left" id="verdant-blade">
+        <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container"
+        class="open-modal"   data-modal-target="#modal-text-verdant-blade">
         <div class="column-right">
           <div class="title">
             <h2>The Verdant Blade</h2>
@@ -153,7 +210,7 @@
           </div>
         </div>
       </div>
-      <div class="exhibit-container-right">
+      <div class="exhibit-container-right" id="resonant-disk">
         <div class="column-left">
           <div class="title">
             <h2>The Resonant Disk</h2>
@@ -188,7 +245,7 @@
         </div>
         <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container">
       </div>
-      <div class="exhibit-container-left">
+      <div class="exhibit-container-left" id="luminous-chalice">
         <img src="../images/exhibits/luminous-chalice.jpg" alt="An image of a iridescent blue chalice with silver filagree" class="exhibit-image-container">
         <div class="column-right">
           <div class="title">
@@ -342,6 +399,56 @@
         The content on this site was concieved by a human and created by AI. The images were created by AI and
         curated, edited, reviewed, verified, calibrated, and augmented by a human.</p>
     </div>
+  </main>
+  <!-- keep your existing overlay + .modal/.modal-content styles -->
+  <div class="modal" id="modal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">x</button>
+      <div id="modal-body"></div> <!-- text gets injected inside the div-->
+    </div>
+  </div>
+  <div class="modal-item" id="modal-text-verdant-blade" hidden>
+    <h2 id="modal-title" class="left-text">Verdant Blade (“Sylveneth”)</h2>
+    <p><i>Mithril-steel alloy and living-wood composite, c. 2,800 years (Late Era of Confluence)</i></p>
+    <p>Recovered from a forest barrow near the Eryndor rivers, this luminous blade embodies the 
+      Confluence ideal of harmony between forge and forest. Its silver-green surface, veined with 
+      mineralized root tissue that glows under moonlight, reveals a craftsmanship where metal and 
+      wood were fused through a ritual process now lost to history.</p>
+    <p>Microscopic traces of resin and sap along the edge, and the absence of combat wear, 
+      suggest its role in ceremonies of renewal rather than war—ritual pruning, consecration, 
+      or stewardship. The blade’s inscriptional silence speaks through form: growth shaped by 
+      restraint.</p>
+    <p>In Reflective Interpretation Sessions, the Verdant Blade is paired with Eryndor 
+      forest windscapes and fragments of ancient verse, inviting visitors to experience the 
+      Elvish belief that even a weapon could become a vessel of care. Meaning, here, arises not 
+      from conquest—but from relationship.</p>
+    <p><i>Interpretation by Lyren Saevielle, M.A. Elvish Cultural Hermeneutics, Academy of Silver Boughs</i></p>
+  </div>
+  
+  <div class="modal-item" id="modal-text-resonant-disk" hidden>
+    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+    <p>Another item’s text…</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-resonant-disk" hidden>
+    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+    <p>Another item’s text…</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-resonant-disk" hidden>
+    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+    <p>Another item’s text…</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-resonant-disk" hidden>
+    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+    <p>Another item’s text…</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-resonant-disk" hidden>
+    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+    <p>Another item’s text…</p>
+  </div>
     <!-- Start Code Section -->
     <script>
       function showSection(section) {
@@ -349,5 +456,44 @@
         sections.forEach(s => s.style.display = 'none');
         document.getElementById(section).style.display = 'block';
       }
+      (function(){
+        const modal      = document.getElementById('modal');
+        const modalBody  = document.getElementById('modal-body');
+        const closeBtn   = modal.querySelector('.close-modal');
+        let lastTrigger  = null;
+
+        function openFrom(selector, trigger){
+          const src = document.querySelector(selector);
+          if (!src) { console.warn('Missing modal content:', selector); return; }
+          modalBody.innerHTML = src.innerHTML;        // inject text HTML
+          modal.style.display = 'block';
+          lastTrigger = trigger || null;
+          closeBtn.focus();
+          document.body.style.overflow = 'hidden';    // no scroll under modal
+        }
+
+        function closeModal(){
+          modal.style.display = 'none';
+          modalBody.innerHTML = '';
+          document.body.style.overflow = '';
+          if (lastTrigger) lastTrigger.focus();
+        }
+
+        // open on any element with data-modal-target
+        document.addEventListener('click', (e)=>{
+          const trigger = e.target.closest('[data-modal-target]');
+          if (trigger){
+            e.preventDefault();
+            openFrom(trigger.getAttribute('data-modal-target'), trigger);
+            return;
+          }
+          if (e.target === modal || e.target.closest('.close-modal')) closeModal();
+        });
+
+        document.addEventListener('keydown', (e)=>{
+          if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
+        });
+      })();
+
     </script>
   </body>
