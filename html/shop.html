@@ -115,31 +115,33 @@
     <button onclick="location.href='../html/staff.html'" class="button">Staff</button>
     <button onclick="location.href='../html/collections.html'" class="button">Collections</button>
     <button onclick="location.href='../html/shop.html'" class="button">Shop</button>
+    <button onclick="location.href='cart.html'" class="button" id="viewCartBtn">View Cart</button>   
   </header>
 
   <div class="shop-container">
 
     <!-- BEGIN SINGLE ITEM BLOCK-->
     <div class="souvenir-item" data-id="echo-disk">
-      <div class="tooltip">
-        <img src="../images/shop/echo-disk-pendant.jpg" alt="Echo disk pendant" onclick="openModal(this)">
-        <span class="tooltiptext">A whisper of the sea’s memory</span>
-      </div>
-      <h3>Echo Disk Pendant</h3>
-      <p>Wear a whisper of the sea’s memory. Inspired by the ancient Resonant Disk of Namarien, 
-        this pendant features a basalt composite etched with iridescent shell spirals that 
-        shimmer with each movement. Suspended on a fine leather rope and presented on a parchment 
-        card inscribed in Elvish runes, it captures the harmony of ocean and song once revered by 
-        the coastal elves.</p>
-      <p><strong>Price:</strong> $25.60</p>
-      <button 
-        onclick="addToCart(this)"
-        data-id="echo-disk"
-        data-name="Echo Disk Pendant"
-        data-price="25.60"
-        data-image="../images/shop/echo-disk-pendant.jpg">
-        Add Echo Disk Pendant to Cart
-      </button>
+        <div class="tooltip">
+          <img src="../images/shop/echo-disk-pendant.jpg" alt="Echo disk pendant" onclick="openModal(this)">
+          <span class="tooltiptext">A whisper of the sea’s memory</span>
+        </div>
+        <h3>Echo Disk Pendant</h3>
+        <p>Wear a whisper of the sea’s memory. Inspired by the ancient Resonant Disk of Namarien, 
+          this pendant features a basalt composite etched with iridescent shell spirals that 
+          shimmer with each movement. Suspended on a fine leather rope and presented on a parchment 
+          card inscribed in Elvish runes, it captures the harmony of ocean and song once revered by 
+          the coastal elves.</p>
+        <p><strong>Price:</strong> $25.60</p>
+        <span class="qty-badge" aria-live="polite"></span>
+        <button 
+          onclick="addToCart(this)"
+          data-id="echo-disk"
+          data-name="Echo Disk Pendant"
+          data-price="25.60"
+          data-image="../images/shop/echo-disk-pendant.jpg">
+          Add Echo Disk Pendant to Cart
+        </button>
     </div>
     <!-- END SINGLE ITEM BLOCK -->
     <div class="souvenir-item" data-id="elven-bangles">
@@ -153,6 +155,7 @@
         renewal, and truth. Elegant, timeless, and softly luminous under light, they evoke the 
         quiet grace of ancient craftsmanship—perfect for those who carry history close to the skin.</p>
       <p><strong>Price:</strong> $15.25</p>
+      <span class="qty-badge" aria-live="polite"></span>
       <button 
         onclick="addToCart(this)"
         data-id="elven-bangles"
@@ -173,8 +176,15 @@
         echoing the radiance of its ancient counterpart. When placed under soft light, it glows 
         with subtle blue hues — a gentle reminder of the Elven rites of remembrance and reflection. 
         Perfect as a keepsake or altar piece for those who honor the quiet beauty of memory.</p>
-      <p><strong>Price:</strong> $75.00</p>
-      <button onclick="addToCart('mini-chalice')">Add Miniature Luminous Chalice to Cart</button>
+      <p><strong>Price:</strong> $75.99</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+        data-id="mini-chalice"
+        data-name="Minature Luminous Chalice"
+        data-price="75.99"
+        data-image="../images/shop/minature-luminous-chalice.jpg">
+        Add Miniature Luminous Chalice to Cart
+      </button>
     </div>
     <div class="souvenir-item" data-id="moonflower-incense">
       <div class="tooltip">
@@ -187,8 +197,15 @@
         moonflower, its silver-glazed petals designed to release gentle streams of smoke through 
         delicate openings. Each piece is hand-finished with subtle iridescence, glowing softly in 
         candlelight — a tranquil companion for meditation, remembrance, or ritual.</p>
-      <p><strong>Price:</strong> $31.00</p>
-      <button onclick="addToCart('moonflower-incense')">Add Moonflower Incense Holder to Cart</button>
+      <p><strong>Price:</strong> $31.50</p>
+      <span class="qty-badge" aria-live="polite"></span>
+      <button onclick="addToCart(this)"
+        data-id="moonflower-incense"
+        data-name="Moonflower Incense Holder"
+        data-price="31.50"
+        data-image="../images/shop/moonflower-incense-holder.jpg">
+        Add Moonflower Incense Holder to Cart
+      </button>
     </div>
 
   </div>
@@ -199,9 +216,53 @@
   </div>
   <script>
     function addToCart(itemId) {
-      alert("Added " + itemId + " to cart (functionality to come)");
-      // Future: Push to cart array
-    }
+    //this key links the shop to the cart
+  }
+
+    const CART_KEY = 'museumCartV1';
+    
+
+    // This function reads the Cart information and write it to JSON  
+        function readCart() {
+          try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+          catch { return []; }
+        }
+    
+        function writeCart(cart) {
+          localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+     
+    /*This function is called by the addToCart button the first part reads the dataset contined in the buttons and asssigns the values to variables */
+    
+        function addToCart(btn) {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const unitPrice = Number(btn.dataset.price);
+          const image = btn.dataset.image;
+    
+    /* This part puts all of the individual items and puts them into an object called cart and writes it to LocalStorage   */
+    
+          let cart = readCart();
+          const idx = cart.findIndex(it => it.id === id);
+          if (idx >= 0) {
+            cart[idx].qty += 1;
+          } else {
+            cart.push({ id, name, unitPrice, qty: 1, image });
+          }
+          writeCart(cart);
+    
+          // Update the item card's qty badge
+    
+          const card = btn.closest('.souvenir-item');
+          if (card) {
+            const badge = card.querySelector('.qty-badge');
+            if (badge) {
+              const item = cart.find(it => it.id === id);
+              badge.textContent = item ? `Qty: ${item.qty}` : '';
+            }
+          }
+        }
+    
 
     function openModal(imgElement) {
       const modal = document.getElementById("modal");
@@ -222,6 +283,8 @@
         closeModal();
       }
     }
+
+    
   </script>
 </body>
 </html>

@@ -153,6 +153,27 @@
     .modal .left-text{
       text-align: left;
     }
+
+    .histories-right{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content max-content;
+      border-left: 2px groove #84a98c;
+      padding-left: 10px;
+      /* border: double cornflowerblue; */
+    }
+    .histories-left{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content max-content;
+      border-right: 2px groove #84a98c;
+      padding-right: 10px;
+      /* border: double cornflowerblue; */
+    }
+
+    .tab{
+      margin-left: 25px;
+    }
     </style>
   </head>
   <main>
@@ -166,7 +187,7 @@
     <div id="under-header">
       <button onclick="showSection('archaeology')" class="button">Archaeology</button>
       <button onclick="showSection('anthropology')" class="button">Anthropology</button>
-      <button onclick class="button">History</button>
+      <button onclick="showSection('histories')" class="button">History</button>
     </div>
     <!-- Archeology page begin -->
     <section id="archaeology" class="collection-section" style="display:none;">
@@ -210,6 +231,25 @@
           </div>
         </div>
       </div>
+      <!-- Verdant Blade Modal -->
+      <div class="modal-item" id="modal-text-verdant-blade" hidden>
+        <h2 id="modal-title" class="left-text">Verdant Blade (“Sylveneth”)</h2>
+        <p><i>Mithril-steel alloy and living-wood composite, c. 2,800 years (Late Era of Confluence)</i></p>
+        <p>Recovered from a forest barrow near the Eryndor rivers, this luminous blade embodies the 
+          Confluence ideal of harmony between forge and forest. Its silver-green surface, veined with 
+          mineralized root tissue that glows under moonlight, reveals a craftsmanship where metal and 
+          wood were fused through a ritual process now lost to history.</p>
+        <p>Microscopic traces of resin and sap along the edge, and the absence of combat wear, 
+          suggest its role in ceremonies of renewal rather than war—ritual pruning, consecration, 
+          or stewardship. The blade’s inscriptional silence speaks through form: growth shaped by 
+          restraint.</p>
+        <p>In Reflective Interpretation Sessions, the Verdant Blade is paired with Eryndor 
+          forest windscapes and fragments of ancient verse, inviting visitors to experience the 
+          Elvish belief that even a weapon could become a vessel of care. Meaning, here, arises not 
+          from conquest—but from relationship.</p>
+        <p><i>Interpretation by Lyren Saevielle, M.A. Elvish Cultural Hermeneutics, Academy of Silver Boughs</i></p>
+      </div>
+      <!-- Resonant Disk -->
       <div class="exhibit-container-right" id="resonant-disk">
         <div class="column-left">
           <div class="title">
@@ -246,6 +286,17 @@
         <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container"
         class="open-modal" data-modal-target="#modal-text-resonant-disk">
       </div>
+      <!-- Resonant Disk Modal -->
+      <div class="modal-item" id="modal-text-resonant-disk" hidden>
+        <h2 id="modal-title">Resonant Disk of Namarien</h2>
+        <p><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)</i></p>
+        <p>Unearthed from the coastal ruins of Namarien, this polished basalt disk gleams with 
+          spirals of iridescent shell, blue green as shifting tide light. Its concave face bears 
+          fine fractures and heat marks—signs of vibration and fire—hinting that it once sang. Found 
+          within the remains of an amphitheater beside broken lyres and sea amulets, it likely served 
+          as an acoustic vessel, amplifying or shaping song rather than merely ornamenting ritual.</p>
+      </div>
+      <!-- Luminous Chalice -->
       <div class="exhibit-container-left" id="luminous-chalice">
         <img src="../images/exhibits/luminous-chalice.jpg" alt="An image of a iridescent blue chalice with silver filagree" class="exhibit-image-container"
         class="open-modal"   data-modal-target="#modal-text-luminous-chalice">
@@ -281,6 +332,11 @@
               Goblets of the Western Sanctum</p>
           </div>
         </div>
+      </div>
+      <!-- Luminous Chalice Modal -->
+      <div class="modal-item" id="modal-text-luminous-chalice" hidden>
+        <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
+        <p>Another item’s text…</p>
       </div>
     </section>
     <!-- End of archeology section -->
@@ -397,11 +453,244 @@
         </div>
       </div>
     </section>
+    <!-- End Anthropology Page -->
+    <!-- Begin Histories Page -->
+    <section id="histories" class="collection-section" style="display:none;">
+      <div class="title-container">
+        <h2>Histories</h2>
+        <p >Due to differing opinions amongst our interpreters we have decided to include both interpretations for public
+          viewing. Which interpretation you agree with is up to each patron to decide. If you would like to hear about this
+          more in depth before coming to a decision consider attending our Ethics of Interpretation Seminar on August 32nd to hear both
+          sets of interpretation in person.
+        </p>
+        <button onclick="showSubsection('lyren-saevielle')" class="button">History Interpretation by Lyren Saevielle</button>
+        <button onclick="showSubsection('thalen-orris')" class="button">History Interpretation by Thalen Orris</button>
+      </div>
+      <section id="lyren-saevielle" class="collection-subsection" style="display:none;">
+        <div class="single-grid">
+          <div class="exhibit-container-left">
+            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+            <div class="histories-right">
+              <div class="title">
+                <h2>The Verdant Blade</h2>
+                <p class="tab"><i>Mithril-steel alloy with integrated living-wood root veins (species undetermined); 84 cm, 
+                  leaf-tapered, flexible spine; c. 2,800 years (late Era of Confluence, metallurgical dating + 
+                  growth-ring analysis). Provenience ID: verdant-blade.</i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  This silver-green blade is a composite of mithril-steel and mineralized root tissue 
+                  that glows softly under moonlight. The edge is light yet resilient (2.3 kg) and 
+                  tapers to a leaflike point; the spine retains controlled flexibility. Microscopic 
+                  inspection records fine, shallow striations concentrated along the cutting length, 
+                  and traces of resin and sap persist on the edge. The organic handle is partially 
+                  fossilized, preserving the impression of its former grip. The alloy evidences 
+                  low-temperature forging, while the wood appears to have been grafted through a fusion 
+                  ritual now lost to history. Species identification remains uncertain.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  Recovered from a forest barrow at the Eryndor river convergence, the blade lay 
+                  within the tomb of a Forest Sentinel, accompanied by amber offerings and feather 
+                  bundles and associated fragments of silver-etched armor. These contextual elements, 
+                  together with the non-martial wear and resin residues, indicate ceremonial cutting 
+                  rather than combat—actions like pruning, consecration, or renewal in keeping with 
+                  the Confluence-era ethic of stewardship. In Elvish myth, “growth through blade” 
+                  names a disciplined practice: carefully cutting to sustain life, not to conquer it. 
+                  In typology, the form relates to Guardian Blades in the Myrval archives; however, 
+                  this example is distinct for its botanical integration, where wood and metal 
+                  physically and symbolically interlace.
+                </p>
+                <h3>Interpretive Insight</h3>
+                <p>
+                  Read through a cultural hermeneutic of resonance, Sylveneth is not merely an object 
+                  but a record of relationship: forest and forge bound into a single gesture. It's 
+                  faint luminescence and balanced weight communicate vigilance more than violence. 
+                  In Reflective Interpretation Sessions, visitors encounter the blade with Contextual 
+                  Re-sounding—soft wind patterns from riparian groves and brief reconstructed phrases 
+                  from Confluence-era chant—to evoke the atmosphere in which such a tool once worked. 
+                  Within Hermeneutic Relationalism, meaning arises between witness and artifact; the 
+                  blade “speaks” through the interplay of material evidence (mithril-steel, root veins, wear, residues) 
+                  and context (barrow, offerings, Sentinel role).
+                </p>
+                <h3> Comparative and Caution</h3>
+                <p>
+                  While comparisons to the Myrval tradition clarify lineage, claims that the blade 
+                  is “sentient” exceed available evidence; this label limits interpretation to 
+                  documented materials, wear, and context. (Speculative assertions—such as those 
+                  advanced by Thalen Orris—are noted but not adopted here due to lack of scientific 
+                  support.)
+                </p>
+                <h3>Data Quality/Notes</h3>
+                <p>
+                  Date and context rest on metallurgical testing and growth-ring analysis; the wood’s 
+                  species and precise fusion method remain undetermined. Sacred content is acknowledged 
+                  through minimal handling and atmosphere-building rather than reenactment.
+                </p>
+                <p><i>On display courtesy of Dr. Erya Dalen, Lead Archaeologist, Museum of Elvish History, following recovery during the Eryndor River Confluence Excavation.</i></p>
+              </div>
+            </div>
+          </div>
+          <div class="exhibit-container-right">
+            <div class="histories-left">
+              <div class="title">
+                <h2>Resonant Disk of Namarien</h2>
+                <p class="tab"><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)</i></p>
+                <p class="tab"><i>Catalog / Provenience ID: resonant-disk</i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Recovered from the coastal ruins of Namarien, half-buried in silt within a 
+                  collapsed amphitheater overlooking the sea, the Resonant Disk measures 30 cm 
+                  in diameter and 3 cm thick, weighing approximately 7.4 kg. Crafted from polished 
+                  basalt and inlaid with iridescent shell fragments arranged in harmonic spirals, 
+                  the artifact shimmers blue-green beneath shifting light. Its concave shape, 
+                  micro-fractures, and heat marks suggest repeated vibrational activity—an object 
+                  meant to interact with sound rather than serve as simple ornamentation. The 
+                  basalt’s density and nacre arrangement imply an advanced understanding of 
+                  resonance geometry for its period.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  Contextual evidence points toward the Disk’s role as an acoustic or ritual 
+                  device within Namarien’s coastal performance culture. Found alongside broken 
+                  lyres, seashell amulets, and a humanoid skeleton whose hands rested near its 
+                  edge, the artifact likely functioned as a resonant surface to amplify or “hold” 
+                  sound. Within Namarien mythology, sound and tide were entwined in the motif of 
+                  The Sea’s Memory—the belief that every song once sung became part of the ocean’s 
+                  eternal voice. The amphitheater’s orientation toward the waves suggests a space 
+                  of communal performance or remembrance, where the Disk may have served as both 
+                  instrument and offering.
+                </p>
+                <h3>Interpretive Inisght</h3>
+                <p>
+                  Through Triadic Reading—Form, Function, Feeling—the Resonant Disk emerges as a 
+                  threshold between evidence and emotion. Its physical properties demonstrate 
+                  mastery of material and geometry; its apparent use reflects a ritual 
+                  engagement with sound as a living presence; and its emotive aura invites 
+                  reflection on memory and loss. Using Contextual Re-sounding, modern 
+                  interpretation pairs the artifact with reconstructed sea songs and ambient wave 
+                  tones, allowing visitors to sense its original acoustic atmosphere. To the 
+                  Interpreter of Memory, the Disk’s fractured edges echo the tension between 
+                  silence and remembrance—its “voice” broken yet enduring.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Comparatively, the Disk predates the Echo Stones of the Lirae Coast by over a 
+                  millennium, though it shares their concern with capturing or extending 
+                  resonance. Its sophistication challenges linear assumptions about technological 
+                  development in early acoustic practice. Yet interpretive caution is essential: 
+                  the mythic associations of The Sea’s Memory and the evocative burial context 
+                  risk romanticization. While speculative reconstructions of ritual soundscapes 
+                  help bridge understanding, they must not obscure the artifact’s ambiguity or the 
+                  limits of our evidence. Interpretations remain provisional, shaped by both 
+                  cultural empathy and methodological restraint.
+                </p>
+                <h3>Data Quality/Notes</h3>
+                <p>
+                  Material and chronological data are supported by carbon residue and silica 
+                  diffusion analysis, confirming an Early Lamentation Period date with high 
+                  confidence. Physical wear patterns and heat marks provide tangible evidence 
+                  of acoustic or performative use, though precise function cannot be conclusively 
+                  established. Interpretations grounded in mythic resonance and emotional 
+                  atmosphere should be understood as heuristic tools, not verified fact. The 
+                  artifact remains partially fractured but acoustically intact—a rare survival 
+                  that continues to invite dialogue between empirical study and cultural imagination.
+                </p>
+              </div>
+            </div>
+            <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container">
+          </div>
+        </div>
+      </section>
+      <section id="thalen-orris" class="collection-subsection" style="display:none;">
+        <div class="single-grid">
+          <div class="exhibit-container-right">
+            <div class="histories-left">
+              <div class="title">
+                <h2>The Verdant Blade</h2>
+                <p class="tab"><i>Late Era of Confluence, c. 2,800 years ago</i></p>
+                <p class="tab"><i>Mithril-steel alloy with living wood integration — 84 cm</i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Recovered from a forest barrow at the meeting of the Eryndor rivers, the 
+                  Verdant Blade displays an extraordinary synthesis of craft and vitality. 
+                  Its mithril-steel alloy, forged at remarkably low temperatures, is veined 
+                  with the mineralized remnants of living root tissue—an achievement of 
+                  metallurgical empathy that no modern forger could reproduce. The silver-green 
+                  surface holds a moonlit sheen, as though memory itself were trapped within the 
+                  alloy. Traces of sap and resin cling to the edge, and microscopic analysis shows 
+                  fine, deliberate scratches consistent with ritual use. The organic handle, now 
+                  partially fossilized, once pulsed with living growth—a reminder that this blade 
+                  was neither merely made nor found, but grown into being.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  The accompanying amber offerings, feather bundles, and silver-etched armor 
+                  fragments confirm that the artifact belonged to a forest sentinel, a guardian 
+                  who embodied the principle of “growth through blade.” This was no weapon of 
+                  conquest. It was a ceremonial instrument of pruning, renewal, and 
+                  stewardship—used, I assert without doubt, in rites that wedded the forge to the 
+                  forest. The Elvish artisans of the late Confluence did not simply honor nature; 
+                  they participated in it. The Verdant Blade is thus an artifact of covenant—a vow 
+                  between creation and preservation.
+                </p>
+                <h3>Interpretive Insight</h3>
+                <p>
+                  Through Emotive Analysis, the Verdant Blade reveals devotion, not destruction. 
+                  Its leaf-tapered curve and flexible spine express the living rhythm of wind and 
+                  branch; its balance conveys restraint, not aggression. One does not need 
+                  Saevielle’s endless “contextual humility” to see this—the object speaks plainly. 
+                  In Folkloric Cross-Referencing, the blade resonates with the ancient songs of 
+                  the Sylveneth, those guardians who “cut away the decay so that the green might 
+                  thrive.” Their stories are not mere mythic echoes; they are direct transmissions 
+                  of emotional memory preserved in form.
+                  Through Intuitive Reconstruction, I perceive the act of forging as a sacred 
+                  exchange—a ritual of breath and flame in which living wood was grafted into 
+                  molten metal to ensure the endurance of the forest’s will. This was not an 
+                  experiment; it was revelation rendered tangible.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Inferior examples—such as the Guardian Blades of the Myrval archives—share 
+                  superficial botanical motifs but lack the Verdant Blade’s living integration. 
+                  Some interpreters, notably Lyren Saevielle, have suggested that the organic 
+                  inclusion was symbolic rather than literal—a metaphor for Elvish hybridity. 
+                  Such readings betray a timidity of imagination. The evidence of resin, the 
+                  texture of mineralized wood, the moonlit luminescence—these are not metaphors, 
+                  they are continuity itself. Caution, then, lies not in doubting what the 
+                  artifact declares, but in listening poorly. The blade does not ask to be 
+                  theorized; it demands to be understood.
+                </p>
+                <h3>Data Quality/Notes</h3>
+                <p>
+                  Metallurgical and dendrochronological analyses place the artifact securely 
+                  within the late Era of Confluence, confirming what its aesthetic language 
+                  already proclaims. The alloy’s low-temperature fusion and integrated organic 
+                  structures are entirely consistent with the mythic accounts of forest-sentinel 
+                  craftsmanship. While some scholars hedge their conclusions behind “limited samples” 
+                  or “contextual uncertainty,” the material speaks with perfect clarity: this was a living 
+                  covenant of metal and root. Preservation is exceptional, and no evidence contradicts the 
+                  interpretive position presented here. The data, in short, align precisely with what 
+                  intuition has already made plain.
+                </p>
+              </div>
+            </div>
+            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+          </div>
+        </div>
+      </section>
+    </section>
     <div class="footer">
       <p>This is a ficticious website created purely for academic reasons. This site was created by a human.
         The content on this site was concieved by a human and created by AI. The images were created by AI and
         curated, edited, reviewed, verified, calibrated, and augmented by a human.</p>
     </div>
+    <!-- End Histories Page -->
   </main>
   <!-- keep your existing overlay + .modal/.modal-content styles -->
   <div class="modal" id="modal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -409,34 +698,6 @@
       <button class="close-modal" aria-label="Close">x</button>
       <div id="modal-body"></div> <!-- text gets injected inside the div-->
     </div>
-  </div>
-  <div class="modal-item" id="modal-text-verdant-blade" hidden>
-    <h2 id="modal-title" class="left-text">Verdant Blade (“Sylveneth”)</h2>
-    <p><i>Mithril-steel alloy and living-wood composite, c. 2,800 years (Late Era of Confluence)</i></p>
-    <p>Recovered from a forest barrow near the Eryndor rivers, this luminous blade embodies the 
-      Confluence ideal of harmony between forge and forest. Its silver-green surface, veined with 
-      mineralized root tissue that glows under moonlight, reveals a craftsmanship where metal and 
-      wood were fused through a ritual process now lost to history.</p>
-    <p>Microscopic traces of resin and sap along the edge, and the absence of combat wear, 
-      suggest its role in ceremonies of renewal rather than war—ritual pruning, consecration, 
-      or stewardship. The blade’s inscriptional silence speaks through form: growth shaped by 
-      restraint.</p>
-    <p>In Reflective Interpretation Sessions, the Verdant Blade is paired with Eryndor 
-      forest windscapes and fragments of ancient verse, inviting visitors to experience the 
-      Elvish belief that even a weapon could become a vessel of care. Meaning, here, arises not 
-      from conquest—but from relationship.</p>
-    <p><i>Interpretation by Lyren Saevielle, M.A. Elvish Cultural Hermeneutics, Academy of Silver Boughs</i></p>
-  </div>
-  
-  <div class="modal-item" id="modal-text-resonant-disk" hidden>
-    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-    <p>Another item’s text…</p>
-  </div>
-
-  <div class="modal-item" id="modal-text-luminous-chalice" hidden>
-    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-    <p>Another item’s text…</p>
-  </div>
 
   <div class="modal-item" id="modal-text-auric-spine" hidden>
     <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
@@ -459,6 +720,12 @@
         sections.forEach(s => s.style.display = 'none');
         document.getElementById(section).style.display = 'block';
       }
+      function showSubsection(subSection){
+        const subSections = document.querySelectorAll('.collection-subsection');
+        subSections.forEach(s => s.style.display = 'none');
+        document.getElementById(subSection).style.display ='block';
+      }
+
       (function(){
         const modal      = document.getElementById('modal');
         const modalBody  = document.getElementById('modal-body');
