@@ -36,38 +36,46 @@
       <!-- STATES & OUTPUT AREAS -->
       <div id="emptyMsg" class="empty" hidden>Your cart is empty.</div>
       <div id="items" hidden>
-        <table>
-          <tr>
-            <th>Item</th>
-            <th>Qty</th>
-            <th>Unit Price</th>
-            <th>Line Total</th>
-            <th>Remove</th>
-          </tr>
-          <tr id="echo-disk">
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-          </tr>
-          <tr id="elven-bangles">
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-          </tr>
-          <tr id="mini-chalice">
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-          </tr>
-          <tr id="moonflower-incense">
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-            <td><p></p></td>
-          </tr>
+        <table id="shoppingCart">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Line Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="echoDisk">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="elvenBangles">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="miniChalice">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id="moonflowerIncense">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <pre id="summary" hidden></pre>
@@ -147,18 +155,30 @@
 let cart = readCart();
 console.log(cart);
   //    2) If empty → show #emptyMsg and hide #items and #summary
-if (cart.length === 0){
-  emptyMsg.hidden=false;
-} 
-  //    3) Build a text-only list in #items:
+  // 3) Build a text-only list in #items:
   //          Example line: "2 × Celestial Inkstone               $29.90"
   //          Include a small Remove button per line that calls removeItem(id)
-for (let i = 0; i <= cart.length; i++){
-  document.getElementById(cart.id).cells[0]= cart.name;
-  document.getElementById(cart.id).cells[1]= cart.qty;
-  document.getElementById(cart.id).cells[2]= cart.unitPrice;
-  let itemTotal= sum(cart.unitPrice * cart.qty)
-  document.getElementById(cart.id).cells[3]= itemTotal
+let shoppingCartTable = document.getElementById('shoppingCart');
+console.log(shoppingCartTable);
+if (cart.length !== 0){
+  for (let i = 0; i < cart.length; i++){
+    let itemLine= cart[i];
+    shoppingCartTable.children[i];
+    shoppingCartTable.children[1].children[i].children[0].innerText = itemLine.name;
+    shoppingCartTable.children[1].children[i].children[1].innerText = itemLine.qty;
+    shoppingCartTable.children[1].children[i].children[2].innerText = itemLine.unitPrice;
+    let lineTotal = ((itemLine.qty)*(itemLine.unitPrice));
+    shoppingCartTable.children[1].children[i].children[3].innerText = lineTotal;
+    let buttonCreate = document.createElement('button');
+    buttonCreate.innerText = 'Remove';
+    buttonCreate.setAttribute("onclick", `removeItem(${shoppingCartTable.children[1].children[i].id})`);
+    console.log(shoppingCartTable.children[1].children[i])
+    shoppingCartTable.children[1].children[i].children[4].appendChild(buttonCreate);
+    // console.log(shoppingCartTable.children[1].children[i].children[1].innerText)
+  }
+} else{
+  emptyMsg.hidden=false;
+}
   // 4) Math (single-discount rule):
   //          ItemTotal = sum(unitPrice * qty)
   //          If Member checked AND Volume tier would apply → PROMPT user to choose:
@@ -168,7 +188,7 @@ for (let i = 0; i <= cart.length; i++){
   //          Subtotal = ItemTotal − AppliedDiscount + SHIPPING_RATE
   //          TaxAmount = Subtotal * TAX_RATE
   //          InvoiceTotal = Subtotal + TaxAmount
-}
+
   //    5) Write a single summary block to #summary (like commission):
   //          Subtotal of Items
   //          Volume Discount
@@ -195,8 +215,8 @@ for (let i = 0; i <= cart.length; i++){
 
     // TODO: STUDENT IMPLEMENTATION
     // For now, show a placeholder so the page isn't blank.
-    // itemsDiv.hidden = true;
-    summaryPre.hidden = false;
+    itemsDiv.hidden = false;
+    // summaryPre.hidden = false;
     // emptyMsg.hidden = true;
     summaryPre.textContent =
 `TODO: Implement render() per the assignment spec.

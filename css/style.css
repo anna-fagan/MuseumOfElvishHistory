@@ -38,10 +38,11 @@ footer{
     display:block;
     height:auto;
     text-align: center;
-    margin:10px;
+    padding:20px;
+    margin-top:10px;
     margin-left:auto;
     margin-right: auto;
-    width:90%;
+    width:100%;
     padding:10px;
     color:#eaf4f4;
     box-sizing: border-box;
@@ -58,13 +59,23 @@ footer{
     color:#eaf4f4;
 }
 
+#under-header{
+  display: block;
+  background-color: rgba(202, 210, 197, 0.90);
+  width:100%;
+  text-align: center;
+  margin:0px;
+  border-top: 5px ridge #84a98c;
+  border-bottom: 5px ridge #84a98c;
+  margin-bottom: 20px;
+}
 .grid-container{
     display:grid;
     max-width:max-content;
     gap:15px;
     padding:20px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 2fr 4fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2fr 3fr 1fr;
  }
 
 .grid-item{
@@ -83,7 +94,7 @@ footer{
     padding-top:10px;
     max-width: max-content;
     text-align: center;
-    grid-column-end: span 2;
+    grid-column-end: span 3;
 }
 
 .right{
@@ -101,7 +112,7 @@ footer{
     padding-top:10px;
     max-width: 100%;
     text-align: center;
-    grid-column-end: span 2;
+    grid-column-end: span 3;
     align-content: center;
     height:50%;
 }
@@ -200,4 +211,14 @@ footer{
     height:max-content;
     padding:15px;
     box-sizing: border-box;
+  }
+
+  .highlight{
+    display:block;
+    margin:15px;
+    font-size: 18px;
+  }
+
+  .center-text{
+    text-align: center;
   }

@@ -16,17 +16,19 @@
         text-align: left;
       }
 
-      #under-header{
-          background-color: rgba(202, 210, 197, 0.90);
-          text-align: center;
-          border-top: 5px ridge #84a98c;
-          border-bottom: 5px ridge #84a98c;
-          margin-bottom: 20px;
-          width:100%;
-      }
+
       .exhibit-image-container{
         display:inline-block;
         height: 550px;
+        margin-left:15px;
+        margin-right: 15px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .histories-image-container{
+        display:inline-block;
+        height: 450px;
         margin-left:15px;
         margin-right: 15px;
         margin-top: auto;
@@ -174,6 +176,9 @@
     .tab{
       margin-left: 25px;
     }
+    .separation-border{
+      border-bottom: 2px groove #84a98c;
+    }
     </style>
   </head>
   <main>
@@ -193,6 +198,7 @@
     <section id="archaeology" class="collection-section" style="display:none;">
       <div class="title-container">
         <h1>Archaeology</h1>
+        <p class="highlight center-text">Please click on any image for a short modal of each exhibit.</p>
       </div>
       <div class="exhibit-container-left" id="verdant-blade">
         <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container"
@@ -233,8 +239,10 @@
       </div>
       <!-- Verdant Blade Modal -->
       <div class="modal-item" id="modal-text-verdant-blade" hidden>
-        <h2 id="modal-title" class="left-text">Verdant Blade (“Sylveneth”)</h2>
-        <p><i>Mithril-steel alloy and living-wood composite, c. 2,800 years (Late Era of Confluence)</i></p>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">Verdant Blade (“Sylveneth”)</h2>
+          <p><i>Mithril-steel alloy and living-wood composite, c. 2,800 years (Late Era of Confluence)</i></p>
+        </div>
         <p>Recovered from a forest barrow near the Eryndor rivers, this luminous blade embodies the 
           Confluence ideal of harmony between forge and forest. Its silver-green surface, veined with 
           mineralized root tissue that glows under moonlight, reveals a craftsmanship where metal and 
@@ -288,8 +296,10 @@
       </div>
       <!-- Resonant Disk Modal -->
       <div class="modal-item" id="modal-text-resonant-disk" hidden>
-        <h2 id="modal-title">Resonant Disk of Namarien</h2>
-        <p><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)</i></p>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">Resonant Disk of Namarien</h2>
+          <p><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)</i></p>
+        </div>
         <p>Unearthed from the coastal ruins of Namarien, this polished basalt disk gleams with 
           spirals of iridescent shell, blue green as shifting tide light. Its concave face bears 
           fine fractures and heat marks—signs of vibration and fire—hinting that it once sang. Found 
@@ -335,8 +345,26 @@
       </div>
       <!-- Luminous Chalice Modal -->
       <div class="modal-item" id="modal-text-luminous-chalice" hidden>
-        <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-        <p>Another item’s text…</p>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">Luminous Chalice of Lethariel</h2>
+          <p><i>Crystalline glass infused with moon-silver filigree, pre-Divergence Era (~3,200 years ago)</i></p>
+        </div>
+        <p>
+          Recovered from a moonlit chamber beneath the ruined Temple of Lethariel, this chalice 
+          of levicite glass and moon-silver filigree seems almost weightless, as though designed 
+          to cradle light itself. When exposed to lunar glow, its etched runes awaken in soft 
+          radiance, suggesting a ritual attuned to celestial rhythm. Trace pollen from the sacred 
+          Silver Bloom indicates its use in rites of remembrance, where Elves believed liquids 
+          could momentarily hold the echoes of the departed.
+        </p>
+        <p>
+          In Triadic Reading: its form evokes purity and suspension; its function mediates 
+          between matter and memory; its feeling invites quiet participation rather than spectacle. 
+          To stand before it is to sense an ancient tenderness—the belief that remembrance is not 
+          possession, but reflection. While some might invent grandeur, careful interpretation 
+          honors its restraint: a vessel of light, memory, and reverent silence, still whispering 
+          across millennia.
+        </p>
       </div>
     </section>
     <!-- End of archeology section -->
@@ -344,7 +372,9 @@
     <section id="anthropology" class="collection-section" style="display:none;">
       <div class="title-container">
         <h1>Anthropology</h1>
+        <p class="highlight center-text">Please click on any image for a short modal of each exhibit.</p>
       </div>
+      <!-- Auric Spine -->
       <div class="exhibit-container-left">
         <img src="../images/exhibits/auric-spine-of-lethandrel.jpg" alt="An image of a spine amongst dirt" class="exhibit-image-container"
         class="open-modal"   data-modal-target="#modal-text-auric-spine">
@@ -384,6 +414,32 @@
           </div>
         </div>
       </div>
+      <!-- Auric Spine Modal -->
+      <div class="modal-item" id="modal-text-auric-spine" hidden>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">Auric Spine of Lethandrel</h2>
+          <p><i>Ossified vertebral column infused with naturally grown gold filaments, exhibiting a pale ivory sheen and subtle metallic iridescence.
+            Elder Lineage Period (~4,000 years ago)
+          </i></p>
+        </div>
+        <p>
+          Suspended once in the vaulted Chamber of Veins, this ossified vertebral column gleams 
+          with a faint gold iridescence — the result of biogenic filaments that grew naturally 
+          within the bone rather than being applied. The spine, nearly pristine despite its 
+          4,000 years, is believed to have belonged to a High Voice Priestess whose songs shaped 
+          ritual speech. Thin auric traces along the neural canal suggest deliberate resonance 
+          enhancement, a literal embodiment of “song memory,” where voice and body converged as 
+          sacred instrument.
+        </p>
+        <p>
+          In Triadic Reading: its form preserves elegant symmetry and latent sound; its function 
+          bridges biology and divinity; its feeling is one of reverent stillness — the quiet 
+          after a note lingers. Standing before it, one senses not spectacle but restraint, the 
+          echo of faith sustained through matter. While others may indulge in speculation, this 
+          interpretation listens for what remains audible: gold, bone, and memory in harmony.
+        </p>
+      </div>
+      <!-- Twilight Runner -->
       <div class="exhibit-container-right">
         <div class="column-left">
           <div class="title">
@@ -413,6 +469,30 @@
         <img src="../images/exhibits/the-femur-of-the-twilight-runner-2.jpg" alt="An image of a femur with slight crystal inlay and gold on a sand background"
           class="exhibit-image-container"  class="open-modal"   data-modal-target="#modal-text-twilight-runner">
       </div>
+      <!-- Femur Modal -->
+      <div class="modal-item" id="modal-text-twilight-runner" hidden>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">Femur of the Twilight Runner</h2>
+          <p><i>Dense elvish cortical bone interlaced with quartz crystallization, showing smooth contours 
+            and microscopic impact striations, Late Confluence Era (~2,900 years old)</i></p>
+        </div>
+        <p>
+          Recovered from a shallow dune grave west of Eryndor, this femur likely belonged to a 
+          member of the courier caste known as the Messengers Between Winds. The dense bone and 
+          microscopic striations suggest years of sustained movement across desert terrain, while 
+          nearby anklet bells and a fragmentary bone flute imply that sound and rhythm guided their 
+          travel. Quartz threading through the bone reflects not decoration but a physiological 
+          adaptation to the resonant light and dry air of the Sapphire Flats.
+        </p>
+        <p>
+          To stand before this relic is to feel motion suspended in stillness. The quartz 
+          shimmer seems to hold the breath of distance — each glint a memory of speed, purpose, 
+          and silence. Within the exhibit, the Reflective Resounding soundscape pairs a low 
+          desert wind with fragments of the “Whisper-Path” chant, allowing visitors to imagine 
+          the living rhythm that once accompanied these sacred journeys.
+        </p>
+      </div>
+      <!-- Veiled Skull -->
       <div class="exhibit-container-left">
         <img src="../images/exhibits/veiled-skull-of-maerion.jpg" alt="An elvish skull covered in rune marks"
           class="exhibit-image-container"  class="open-modal"  data-modal-target="#modal-text-veiled-skull">
@@ -452,6 +532,30 @@
           </div>
         </div>
       </div>
+      <!-- Veiled Skull Modal -->
+      <div class="modal-item" id="modal-text-veiled-skull" hidden>
+        <div class="separation-border">
+          <h2 id="modal-title" class="left-text">The Veiled Skull of Maerion</h2>
+          <p><i>Bone overlaid with a thin silicate membrane and luminescent residue, preserved through ritual 
+            sand-glazing in a tidal crypt, Era of Isolation (~3,600 years old)</i></p>
+        </div>
+        <p>
+          A relic of the Seers known as the Veiled, this skull was discovered in a tidal 
+          crypt near the Tidesong Caverns, its ivory bone sealed beneath a thin, translucent 
+          layer of fused silica. The glazing—formed through deliberate burial in glass-rich 
+          sands—preserved not only structure but resonance: when exposed to low frequencies, 
+          the piece emits a faint harmonic vibration, perhaps an unintended echo of the burial 
+          ritual itself. Traces of moon-ink markings along the sutures suggest ceremonial 
+          preparation for passage between worlds.
+        </p>
+        <p>
+          Though some claim the luminescence reflects the Seers’ lingering sight, such ideas 
+          remain interpretive rather than empirical. Yet the interplay of bone, glass, and 
+          sound invites a sense of listening across thresholds—between life and death, elven 
+          and human understanding. In that delicate resonance, one may glimpse the Era of 
+          Isolation’s profound attempt to make memory itself luminous.
+        </p>
+      </div>
     </section>
     <!-- End Anthropology Page -->
     <!-- Begin Histories Page -->
@@ -466,16 +570,20 @@
         <button onclick="showSubsection('lyren-saevielle')" class="button">History Interpretation by Lyren Saevielle</button>
         <button onclick="showSubsection('thalen-orris')" class="button">History Interpretation by Thalen Orris</button>
       </div>
+      <!-- Start Lyren Saevielle Section -->
       <section id="lyren-saevielle" class="collection-subsection" style="display:none;">
         <div class="single-grid">
+          <!-- Verdant Blade -->
           <div class="exhibit-container-left">
-            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." 
+            class="histories-image-container">
             <div class="histories-right">
               <div class="title">
                 <h2>The Verdant Blade</h2>
                 <p class="tab"><i>Mithril-steel alloy with integrated living-wood root veins (species undetermined); 84 cm, 
                   leaf-tapered, flexible spine; c. 2,800 years (late Era of Confluence, metallurgical dating + 
-                  growth-ring analysis). Provenience ID: verdant-blade.</i></p>
+                  growth-ring analysis).<br>
+                Provenience ID: verdant-blade</i></p>
               </div>
               <div class="description">
                 <h3>Item Description</h3>
@@ -522,7 +630,7 @@
                   advanced by Thalen Orris—are noted but not adopted here due to lack of scientific 
                   support.)
                 </p>
-                <h3>Data Quality/Notes</h3>
+                <h3>Data Quality / Notes</h3>
                 <p>
                   Date and context rest on metallurgical testing and growth-ring analysis; the wood’s 
                   species and precise fusion method remain undetermined. Sacred content is acknowledged 
@@ -532,12 +640,13 @@
               </div>
             </div>
           </div>
+          <!-- Resonant Disk -->
           <div class="exhibit-container-right">
             <div class="histories-left">
               <div class="title">
                 <h2>Resonant Disk of Namarien</h2>
-                <p class="tab"><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)</i></p>
-                <p class="tab"><i>Catalog / Provenience ID: resonant-disk</i></p>
+                <p class="tab"><i>Basalt and shell inlay, Early Lamentation Period (~4,100 years ago)<br>
+                Provenience ID: resonant-disk</i></p>
               </div>
               <div class="description">
                 <h3>Item Description</h3>
@@ -588,7 +697,7 @@
                   limits of our evidence. Interpretations remain provisional, shaped by both 
                   cultural empathy and methodological restraint.
                 </p>
-                <h3>Data Quality/Notes</h3>
+                <h3>Data Quality / Notes</h3>
                 <p>
                   Material and chronological data are supported by carbon residue and silica 
                   diffusion analysis, confirming an Early Lamentation Period date with high 
@@ -601,10 +710,360 @@
                 </p>
               </div>
             </div>
-            <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" class="exhibit-image-container">
+            <img src="../images/exhibits/resonant-disk.jpg" alt="An image of a resonant disk that is black with shiny intricate leaves in a swirl on top" 
+            class="histories-image-container">
+          </div>
+          <!-- Luminous Chalice -->
+          <div class="exhibit-container-left">
+            <img src="../images/exhibits/luminous-chalice.jpg" alt="An image of a iridescent blue chalice with silver filagree" 
+            class="histories-image-container">
+            <div class="histories-right">
+              <div class="title">
+                <h2>Luminous Chalice of Lethariel</h2>
+                <p class="tab"><i>Crystalline levicite glass with moon-silver filigree, pre-Divergence (~3,200 years, est.)</i></p>
+                <p class="tab"><i>Provenience ID: luminous-chalice</i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Recovered from a subterranean chamber beneath the ruins of Lethariel’s 
+                  temple in the Northern Glades (42°N, 13°E), the Luminous Chalice is a 22 cm 
+                  tall crystalline vessel of levicite glass infused with moon-silver filigree. 
+                  The chalice is of stemmed bowl form, with a delicately fluted lip and a 
+                  near-weightless balance due to its levicite composition. Under moonlight, 
+                  microscopic runes etched into the silver filigree emit a faint luminescence, 
+                  while in daylight the same markings appear as a geometric overlay fused to a 
+                  lathed crystal core—demonstrating refined optical and metallurgical precision. 
+                  Minor tarnish along the rim suggests tactile use, not mere votive display. The 
+                  artifact was found nearly pristine, lying in a ritual alcove positioned beneath 
+                  a skylight shaft designed to admit moonlight directly onto the vessel.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  Residue analysis identified traces of dried nectar and Silver Bloom 
+                  pollen—elements associated with rites of remembrance in pre-Divergence Elvish 
+                  ritual practice. Within Lethariel’s temple complex, the chalice appears to have 
+                  served a ceremonial role in moonlit offerings, where light and liquid together 
+                  enacted the concept of reflected memory—the belief that water or nectar could 
+                  momentarily contain echoes of departed souls. The placement of the artifact 
+                  facing an open skylight suggests intentional design to channel lunar beams into 
+                  the vessel. Nearby finds—three broken diadems and petrified blossoms—indicate a 
+                  context of reverence and possible mourning.
+                </p>
+                <h3>Interpretive Insight</h3>
+                <p>
+                  Applying Triadic Reading (Form, Function, Feeling) reveals layered meaning. 
+                  Form embodies mastery of materials and celestial alignment, with runes keyed 
+                  to lunar cycles. Function emerges from context—used in nocturnal rites linking 
+                  remembrance and light. Feeling, approached through Contextual Re-sounding, 
+                  is evoked in reflective interpretation sessions that pair ambient nocturnal 
+                  soundscapes and chanted fragments to recreate its original sensory setting. 
+                  Standing before the object, one perceives not only its luminosity but its quiet 
+                  invitation to reflection: a vessel that mediates between the visible and the 
+                  remembered. As a half-elf working at the intersection of human and elven 
+                  scholarship, I read this hybridity of glass and silver, light and liquid, 
+                  as emblematic of cultural permeability—memory as something shared rather 
+                  than owned.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Comparable artifacts include the Moonwell Goblets of the Western Sanctum, 
+                  which also employed optical glass and silver infusions but lack the chalice’s 
+                  micro-runic alignment to lunar phases. The craftsmanship of the Luminous Chalice 
+                  thus represents a distinct technological and aesthetic lineage. However, while 
+                  the artifact’s beauty invites mythic interpretation, caution is warranted. 
+                  Claims that it “captured souls” or “stored memory” derive from later poetic 
+                  traditions, not direct evidence. The interpreter must navigate between reverence 
+                  and restraint, recognizing that what endures is suggestion, not certainty.
+                </p>
+                <h3>Data Quality / Notes</h3>
+                <p>
+                  Chronological attribution to the pre-Divergence era rests on contextual strata 
+                  rather than direct dating, giving medium confidence in the temporal estimate. 
+                  Residue testing confirms Silver Bloom pollen and nectar traces, substantiating 
+                  ceremonial use. The artifact’s preservation state is exceptional—nearly 
+                  pristine aside from minor tarnish along the rim. While interpretive methods 
+                  involving resonance and soundscape reconstruction provide valuable experiential 
+                  context, they remain speculative and should be presented as interpretive aids 
+                  rather than empirical conclusions. The Luminous Chalice of Lethariel continues 
+                  to serve as a touchstone for dialogue between empirical analysis and cultural 
+                  imagination.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Auric Spine -->
+           <div class="exhibit-container-right">
+            <div class="histories-left">
+              <div class="title">
+                <h2>Auric Spine of Lethandrel</h2>
+                <p class="tab"><i>Ossified vertebral column with biogenic gold inclusions, Elder Lineage Period (~4,000 years ago)<br>
+                Provenience ID: auric-spine</i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Recovered from the Chamber of Veins beneath the collapsed sanctum of Lethandrel, 
+                  this 48-centimeter segment of ossified vertebrae displays a pale ivory surface 
+                  veined with faint iridescence where gold filaments emerge. Mineral analysis 
+                  confirms these auric inclusions as biogenic—grown within living bone rather 
+                  than applied after death—suggesting a physiological adaptation or ritual 
+                  alteration. The vertebrae are unbroken, the neural canal intact, and connective 
+                  nodules fully mineralized, an unusually complete preservation for remains of 
+                  this antiquity.
+                </p>
+                <p>
+                  The Auric Spine is composed of a continuous section of vertebrae infused with 
+                  microscopic veins of native gold. The bone’s sheen alternates between matte 
+                  ivory and soft metallic luster, especially along the ridged processes. Scans 
+                  reveal that gold filaments trace the neural canal in a regular pattern, implying 
+                  biological or ceremonial intent. The artifact measures 48 cm and weighs 1.6 
+                  kg—delicate yet dense, almost resonant when struck. Its pristine condition 
+                  suggests the ossuary environment, suspended from ceiling beams, maintained 
+                  stable mineral humidity.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  Tradition holds that this spine once belonged to a High Voice Priestess of 
+                  Lethandrel, whose order practiced “song memory”—the belief that divine utterance 
+                  could imprint the body, particularly the spine, with harmonic energy. Gold, in 
+                  this theology, was the metal of sustained resonance, capable of carrying sacred 
+                  frequencies. The presence of chime fragments and woven hair cords supports the 
+                  idea that the remains were ritually suspended, perhaps to allow lingering 
+                  vibrations to move through the space. This was not a burial of silence, but of 
+                  continued voice. The Chamber of Veins, as later inscriptions suggest, was 
+                  conceived as both tomb and tuning hall, a place where song persisted beyond 
+                  mortality.
+                </p>
+                <h3>Interpretive Insight</h3>
+                <p>
+                  Through Triadic Reading (Form, Function, Feeling), the Auric Spine becomes an 
+                  axis of embodied sound. Form reveals integration—bone and metal interlaced in 
+                  patterns too consistent to be random, a literal merging of biology and symbol. 
+                  Function may have been ritual amplification: a priestess whose speech resonated 
+                  with auric vibration, enhancing sacred recitation. Feeling, approached through 
+                  Contextual Re-sounding, evokes the solemn hum of continuity—the sense that voice, 
+                  once gifted, does not vanish but changes medium. During reflective interpretation 
+                  sessions, faint metallic tones are paired with slow breath patterns to simulate what 
+                  such resonance might have felt like to practitioners of the Elder Lineage. As a half-elf 
+                  positioned between traditions, I am drawn to how this fusion—flesh and metal, mortal and 
+                  divine—embodies hybridity as revelation rather than corruption.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Comparable examples, such as the resonant vertebrae of the Silent Choir Tombs 
+                  in the Inner Glades, share similar auric inclusions but lack the structural 
+                  wholeness found here. Those fragments appear to have been ornamented 
+                  posthumously, while the Auric Spine displays signs of living integration, 
+                  marking it as a unique specimen. However, despite its mythic associations, 
+                  caution is warranted: there is no direct evidence that the Priestess’s voice 
+                  could physically alter bone. Interpretations must balance reverence with 
+                  restraint, avoiding the overreach of speculative mythography often advanced by 
+                  less disciplined interpreters. The object’s significance lies not in proving 
+                  legend, but in revealing how belief shaped biology and ritual practice alike.
+                </p>
+                <h3>Data Quality / Notes</h3>
+                <p>
+                  Auric isotope dating establishes a secure chronology in the Elder Lineage 
+                  period with high confidence. Mineral scans confirm gold as native, not applied, 
+                  and preservation is exceptional—connective nodules fully mineralized, auric 
+                  inclusions stable. The find’s contextual integrity supports ritual deposition 
+                  rather than random preservation. Interpretations derived from “song memory” 
+                  remain theoretical but consistent with regional theology and comparative burial 
+                  data. The artifact stands as both scientific specimen and spiritual text—its 
+                  meaning emerging, as all memory does, between what is known and what can only 
+                  be listened for.
+                </p>
+              </div>
+            </div>
+            <img src="../images/exhibits/auric-spine-of-lethandrel.jpg" alt="An image of a spine amongst dirt" 
+            class="histories-image-container">
+          </div>
+          <!-- Twilight Runner -->
+          <div class="exhibit-container-left">
+            <img src="../images/exhibits/the-femur-of-the-twilight-runner-2.jpg" alt="An image of a femur with slight crystal inlay and gold on a sand background"
+            class="histories-image-container">
+            <div class="histories-right">
+              <div class="title">
+                <h2>Femur of the Twilight Runner</h2>
+                <p class="tab"><i>Dense elvish cortical bone with quartz crystallization, Late Confluence Era (~2,900 years ago)
+                  <br>Provenience ID: twilight-runner
+                </i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Recovered from a shallow dune grave west of Eryndor, this elongated 
+                  femur—measuring 67 cm with a slight lateral twist—bears the unmistakable 
+                  marks of motion and endurance. The dense cortical structure is interlaced with 
+                  fine quartz crystallization, producing a faint internal shimmer under light. 
+                  Micro-scratches along the bone’s surface indicate repetitive impact wear, 
+                  consistent with sustained locomotion across hard terrain. The proximal end is 
+                  fractured but cleanly mineralized, suggesting both age and environmental 
+                  stability within the burial layer verified through strata analysis.
+                </p>
+                <p>
+                  The Femur of the Twilight Runner is a partial skeletal remain from an elvish 
+                  individual of the Late Confluence Era. The bone’s structure combines anatomical 
+                  precision with geological resonance: dense tissue shot through with quartz, 
+                  likely a natural adaptation to arid desert environments. Its aerodynamic 
+                  curvature and surface striations indicate advanced muscular development and 
+                  habitual long-distance running. The find site—a dune grave near the Sapphire 
+                  Flats—contained anklet bells and fragments of a bone flute, suggesting the 
+                  deceased may have belonged to a ceremonial courier caste whose physical 
+                  discipline intertwined with ritual performance.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  In elvish oral tradition, the Twilight Runners were messengers between 
+                  enclaves—bearers of news, songs, and prayers who crossed the desert at dusk 
+                  when the world was balanced between heat and cool, silence and sound. They 
+                  were said to “carry whispers between winds,” a phrase preserved in the desert 
+                  hymns of Elarien. The presence of anklet bells and flute fragments near the 
+                  femur hints that sound—perhaps rhythm or cadence—was integral to their 
+                  vocation. The quartz integration, enhancing resonance, may have been both 
+                  physiological and symbolic: the desert itself imprinting its mineral memory 
+                  upon those who served it.
+                </p>
+                <h3>Interpretive Insight</h3>
+                <p>
+                  Through Triadic Reading (Form, Function, Feeling), the artifact speaks as 
+                  much of endurance as of expression. Form—the elegant twist, the crystalline 
+                  threads—suggests a body attuned to motion and sound. Function—the microabrasions 
+                  and quartz resonance—indicates long-distance movement as a sacred act, a form 
+                  of communication rather than travel. Feeling—the emotive trace sensed through 
+                  Contextual Re-sounding—emerges when paired with environmental soundscapes of 
+                  wind over dunes and low chime tones, recreating the meditative rhythm these 
+                  runners may have embodied. To interpret such remains is to sense continuity: 
+                  movement as memory, memory as message. For me—as one who lives between elven 
+                  and human traditions—the Twilight Runner embodies the dialogue between body 
+                  and land, evidence and imagination.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Morphological parallels exist with limb specimens from the Drystep Remains 
+                  of Elarien, though those are less mineralized, supporting regional adaptation 
+                  rather than species distinction. While poetic accounts speak of “bones that 
+                  sang beneath the wind,” physical evidence limits us to plausible hypotheses: 
+                  the quartz traces are natural, not artificial, and no indication of engineered 
+                  resonance has been verified. Interpretations must balance empathy with rigor; 
+                  imagination must not outrun the data, however evocative the object’s aura.
+                </p>
+                <h3>Data Quality / Notes</h3>
+                <p>
+                  Dating is supported by verified environmental strata from the Sapphire Flats 
+                  site, yielding medium confidence in temporal placement. Preservation is 
+                  partial but stable; mineralization patterns are consistent with long-term dune 
+                  interment. The bone’s quartz inclusions remain chemically stable and are likely 
+                  native, not the result of post-burial deposition. Interpretive frameworks 
+                  employing soundscape reconstruction and comparative folklore provide meaningful 
+                  cultural context but should be understood as speculative aids to understanding. 
+                  The Femur of the Twilight Runner stands as both evidence and echo—reminding 
+                  us that motion, like memory, leaves traces deeper than bone.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Veiled Skull -->
+          <div class="exhibit-container-right">
+            <div class="histories-left">
+              <div class="title">
+                <h2>The Veiled Skull of Maerion</h2>
+                <p class="tab"><i>
+                  Bone with silicate membrane and luminescent residue, Era of Isolation (~3,600 years ago)<br>
+                  Provenience ID: veiled-skull
+                </i></p>
+              </div>
+              <div class="description">
+                <h3>Item Description</h3>
+                <p>
+                  Discovered in a tidal crypt near the Tidesong Caverns, the Veiled Skull of 
+                  Maerion is among the most striking examples of ritual preservation from the 
+                  Era of Isolation. The skull, belonging to what is believed to have been a Seer, 
+                  remains fully intact—its pale bone encased in a thin, glassy membrane of 
+                  silicate and faint luminescent residue. When exposed to low-frequency vibration, 
+                  the fused bone-silica interface emits a harmonic resonance, a phenomenon 
+                  attributed to the unique tidal burial conditions that vitrified the organic 
+                  tissue. The object balances fragility and endurance, glimmering softly as if 
+                  lit from within—an artifact that seems to breathe between worlds.
+                </p>
+                <p>
+                  Measuring 22 cm in length, the skull’s elongated zygomatic arches and refined 
+                  jawline suggest elvish lineage of the coastal enclaves. Its semi-translucent 
+                  membrane allows the bone beneath to gleam faintly, and under dim light it 
+                  exhibits a subtle luminescent sheen. Microscopic analysis reveals rune imprints 
+                  along the cranial sutures, possibly applied using moon-ink, a pigment known 
+                  for its phosphorescent properties in spiritual markings. Found with a 
+                  fragmented conch amulet and spiral array of glass beads, the skull’s 
+                  placement and surrounding artifacts imply ritual arrangement rather than hasty 
+                  interment.
+                </p>
+                <h3>Cultural Use</h3>
+                <p>
+                  In the mythos of the coastal elven orders, the Veiled were spiritual 
+                  intermediaries said to “see through death into the dreams of the living.” Their 
+                  remains, preserved through sand-glazing rituals, were thought to retain echoes 
+                  of perception—an embodied bridge between mortality and foresight. The 
+                  silicate “veil” encasing the bone was not merely protective; it symbolized 
+                  translucence between realms. Burial within a chamber cyclically washed by 
+                  tidewater further deepened this symbolism: the ocean’s ebb and flow mirrored 
+                  the movement of spirit and memory between the living and the departed. That 
+                  the skull was found near the sea’s threshold—neither wholly submerged nor 
+                  dry—suggests a liminal theology, one in which knowledge itself was understood 
+                  as tidal, rhythmic, and perpetually unfinished.
+                </p>
+                <h3>Interpretive Inisght</h3>
+                <p>
+                  Through Triadic Reading (Form, Function, Feeling), the skull can be approached 
+                  as a vessel of resonance—both physical and metaphoric. Form: the fused silica 
+                  and bone articulate a deliberate interplay of transparency and opacity, 
+                  material and immaterial. Function: the luminescent residue and rune traces 
+                  imply ceremonial use, likely as a focal object in rites of listening or 
+                  trance—perhaps a means of invoking memory through vibration and reflected 
+                  light. Feeling: approached through Contextual Re-sounding, the artifact is 
+                  paired in the gallery with low harmonic tones and soft wave soundscapes, 
+                  allowing visitors to perceive its vibratory presence. To stand before it is 
+                  to sense history not as distance, but as a whisper that trembles still within 
+                  the material.
+                </p>
+                <p>
+                  As an interpreter positioned between traditions—human and elven—I read the 
+                  Veiled Skull as a meditation on permeability: how bodies, cultures, and truths 
+                  refract each other. It resists finality; its voice is partial, shimmering. Our 
+                  task is not to translate it into certainty but to listen, again and again, for 
+                  what endures beneath the veil.
+                </p>
+                <h3>Comparative and Caution</h3>
+                <p>
+                  Comparable glazing techniques appear in the Ashen Shores necropolis, though 
+                  rarely in such completeness or acoustic integrity. While the harmonic vibration 
+                  invites poetic speculation about “songs of the dead,” such interpretations 
+                  remain unverified. The resonance likely arises from material fusion, not 
+                  supernatural agency. As ever, one must resist the urge—common among more 
+                  sensational interpreters—to equate mystery with miracle. The artifact’s 
+                  sanctity resides in its craftsmanship and context, not in imagined powers.
+                </p>
+                <h3>Data Quality / Notes</h3>
+                <p>
+                  Chronological placement is securely established through silica diffusion 
+                  testing, providing high confidence in Era of Isolation dating. Structural 
+                  preservation is exceptional; both bone and membrane remain chemically stable. 
+                  Analytical data support interpretations of ritual preservation and 
+                  environmental fusion rather than natural fossilization. Interpretive frameworks 
+                  involving sound and luminescence serve as experiential aids but remain 
+                  speculative. The Veiled Skull of Maerion endures as a point of 
+                  resonance—scientifically grounded, spiritually suggestive, and forever poised 
+                  between evidence and echo.
+                </p>
+              </div>
+            </div>
+            <img src="../images/exhibits/veiled-skull-of-maerion.jpg" alt="An elvish skull covered in rune marks"
+              class="histories-image-container">
           </div>
         </div>
       </section>
+      <!-- End Lyren Saevielle Section -->
+      <!-- Start Thalen Orris Section -->
       <section id="thalen-orris" class="collection-subsection" style="display:none;">
         <div class="single-grid">
           <div class="exhibit-container-right">
@@ -680,7 +1139,8 @@
                 </p>
               </div>
             </div>
-            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." class="exhibit-image-container">
+            <img src="../images/exhibits/the-verdant-blade.jpg" alt="An image of the vertant blade, a silver sword with green inlays and a wooden handle." 
+            class="histories-image-container">
           </div>
         </div>
       </section>
@@ -699,20 +1159,6 @@
       <div id="modal-body"></div> <!-- text gets injected inside the div-->
     </div>
 
-  <div class="modal-item" id="modal-text-auric-spine" hidden>
-    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-    <p>Another item’s text…</p>
-  </div>
-
-  <div class="modal-item" id="modal-text-twilight-runner" hidden>
-    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-    <p>Another item’s text…</p>
-  </div>
-
-  <div class="modal-item" id="modal-text-veiled-skull" hidden>
-    <h2 id="modal-title">Basaltic Glyphstone — Collection Note</h2>
-    <p>Another item’s text…</p>
-  </div>
     <!-- Start Code Section -->
     <script>
       function showSection(section) {
