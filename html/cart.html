@@ -153,34 +153,99 @@
 
   //    1) Load cart from readCart(); keep only items with qty > 0 and unitPrice > 0
 let cart = readCart();
-console.log(cart);
   //    2) If empty → show #emptyMsg and hide #items and #summary
   // 3) Build a text-only list in #items:
   //          Example line: "2 × Celestial Inkstone               $29.90"
   //          Include a small Remove button per line that calls removeItem(id)
+let itemTotal = 0;
+let totalQty = 0
 let shoppingCartTable = document.getElementById('shoppingCart');
-console.log(shoppingCartTable);
 if (cart.length !== 0){
   for (let i = 0; i < cart.length; i++){
+    // Setting up that each item line aligns to the first aray in the object
     let itemLine= cart[i];
-    shoppingCartTable.children[i];
+
+    // Putting the data from the line item into the table that we created
     shoppingCartTable.children[1].children[i].children[0].innerText = itemLine.name;
     shoppingCartTable.children[1].children[i].children[1].innerText = itemLine.qty;
-    shoppingCartTable.children[1].children[i].children[2].innerText = itemLine.unitPrice;
+    shoppingCartTable.children[1].children[i].children[2].innerText = money(itemLine.unitPrice);
+
+    // Calculate line total and then put that into table
     let lineTotal = ((itemLine.qty)*(itemLine.unitPrice));
-    shoppingCartTable.children[1].children[i].children[3].innerText = lineTotal;
+    shoppingCartTable.children[1].children[i].children[3].innerText =  money(lineTotal);
+
+    // Create a remove button and put it into the last button spot
     let buttonCreate = document.createElement('button');
     buttonCreate.innerText = 'Remove';
-    buttonCreate.setAttribute("onclick", `removeItem(${shoppingCartTable.children[1].children[i].id})`);
-    console.log(shoppingCartTable.children[1].children[i])
+    buttonCreate.addEventListener("click", removeItem(shoppingCartTable.children[1].children[i]));
     shoppingCartTable.children[1].children[i].children[4].appendChild(buttonCreate);
-    // console.log(shoppingCartTable.children[1].children[i].children[1].innerText)
+
+    // Ensure that total is being calculated
+    itemTotal += lineTotal;
+
+    // ensure total qty is being updated
+    totalQty += itemLine.qty;
   }
+  // Check for membership discount
+  let membership = document.getElementById('memberToggle').checked;
+  console.log(membership)
+  // Calculate volume discount
+  let volDiscount = volumeRate(itemTotal);
+
+  // Check for volume discount vs member discount
+  if (membership === true && volDiscount !== 0){
+    let userChoice = prompt('You can only have one type of discount. Please enter V for Volume or M for Membership')
+    
+    // ensure uppercase
+    userChoice = userChoice.toUpperCase();
+
+    if (userChoice === 'M'){
+      volDiscount = 0;
+    } else if (userChoice === 'V'){
+      isMember = false;
+    } else {
+      volDiscount = 0;
+    }
+  }
+
+  // Set up variable otuside the if else so it can be accessed outside
+  let discount;
+
+  if (membership === true){
+    discount = 0.15;
+  } else if (volDiscount > 0){
+    discount = volDiscount
+  } else {
+    discount = 0;
+  }
+
+  let appliedDiscount= (itemTotal * discount)
+  let subtotal = itemTotal - appliedDiscount + SHIPPING_RATE;
+  let taxAmmount = subtotal * TAX_RATE;
+  let invoiceTotal = subtotal + taxAmmount;
+
+  let summary = `Subtotal: ${money(itemTotal)}
+  Volume Discount:${volDiscount*100}%
+  Membership Discount:${membership*100}%
+  Shipping:${money(SHIPPING_RATE)}
+  Subtotal (Taxable):${money(subtotal)}
+  Tax Rate:${TAX_RATE*100}%
+  Tax Ammount:${money(taxAmmount)}
+  Invoice Total:${money(invoiceTotal)}`;
+
+  // Remove hidden tag from the Summary
+  const outputDiv = document.getElementById('summary');
+  outputDiv.removeAttribute('hidden');
+
+  // Add text to pre tag
+  outputDiv.textContent = summary;
+
 } else{
   emptyMsg.hidden=false;
 }
   // 4) Math (single-discount rule):
   //          ItemTotal = sum(unitPrice * qty)
+  
   //          If Member checked AND Volume tier would apply → PROMPT user to choose:
   //            "Only one discount may be applied. Type 'M' for Member or 'V' for Volume:"
   //            Apply only the chosen one; set the other to $0.00
@@ -218,7 +283,7 @@ if (cart.length !== 0){
     itemsDiv.hidden = false;
     // summaryPre.hidden = false;
     // emptyMsg.hidden = true;
-    summaryPre.textContent =
+    // summaryPre.textContent = 
 `TODO: Implement render() per the assignment spec.
 
 Steps:
