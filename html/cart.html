@@ -17,6 +17,10 @@
     .empty { padding: 12px; border: 1px dashed #666; font-style: italic; }
     pre#summary { background: #f8f8f8; padding: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     .actions { margin-top: 12px; display: flex; gap: 8px; }
+    .shopping-div{
+      border: 2px solid #2f3e46;
+      padding:10px;
+    }
   </style>
 </head>
 <body>
@@ -27,59 +31,19 @@
   </header>
 
   <main>
-    <div class="grid-item">
+    <div class="shopping-cart">
       <!-- NEW CONTROLS (Cart page only) -->
       <div class="controls">
         <label><input type="checkbox" id="memberToggle"> Member Discount (15%)</label>
       </div>
-
-      <!-- STATES & OUTPUT AREAS -->
-      <div id="emptyMsg" class="empty" hidden>Your cart is empty.</div>
-      <div id="items" hidden>
-        <table id="shoppingCart">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Qty</th>
-              <th>Unit Price</th>
-              <th>Line Total</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="echoDisk">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr id="elvenBangles">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr id="miniChalice">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr id="moonflowerIncense">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="shopping-div">    
+        <div id="emptyMsg" class="empty" hidden>Your cart is empty.</div>
+        <div id="items" hidden>
+        </div>
       </div>
+      <!-- STATES & OUTPUT AREAS -->
       <pre id="summary" hidden></pre>
-
+  
       <!-- BASIC ACTIONS -->
       <div class="actions">
         <button id="clearBtn">Clear Cart</button>
@@ -148,129 +112,39 @@
   /* ================== END UTILITIES & CONSTANTS =========================== */
 
 
-  //  ====================== STUDENT WORK STARTS HERE =========================
-  //    IMPLEMENT render() to mirror the commission assignment:
+  /* ====================== STUDENT WORK STARTS HERE =========================
+     IMPLEMENT render() to mirror the commission assignment:
 
-  //    1) Load cart from readCart(); keep only items with qty > 0 and unitPrice > 0
-let cart = readCart();
-  //    2) If empty → show #emptyMsg and hide #items and #summary
-  // 3) Build a text-only list in #items:
-  //          Example line: "2 × Celestial Inkstone               $29.90"
-  //          Include a small Remove button per line that calls removeItem(id)
-let itemTotal = 0;
-let totalQty = 0
-let shoppingCartTable = document.getElementById('shoppingCart');
-if (cart.length !== 0){
-  for (let i = 0; i < cart.length; i++){
-    // Setting up that each item line aligns to the first aray in the object
-    let itemLine= cart[i];
+     1) Load cart from readCart(); keep only items with qty > 0 and unitPrice > 0
+     2) If empty → show #emptyMsg and hide #items and #summary
+     3) Build a text-only list in #items:
+           Example line: "2 × Celestial Inkstone               $29.90"
+           Include a small Remove button per line that calls removeItem(id)
+     4) Math (single-discount rule):
+           ItemTotal = sum(unitPrice * qty)
+           If Member checked AND Volume tier would apply → PROMPT user to choose:
+             "Only one discount may be applied. Type 'M' for Member or 'V' for Volume:"
+             Apply only the chosen one; set the other to $0.00
+           Else apply Member OR Volume (not both)
+           Subtotal = ItemTotal − AppliedDiscount + SHIPPING_RATE
+           TaxAmount = Subtotal * TAX_RATE
+           InvoiceTotal = Subtotal + TaxAmount
+     5) Write a single summary block to #summary (like commission):
+           Subtotal of Items
+           Volume Discount
+           Member Discount
+           Shipping
+           Subtotal (Taxable)
+           Tax Rate %   (as a percentage text)
+           Tax Amount $ (as currency)
+           Invoice Total
+     6) Recompute (call render()) after:
+           - Member checkbox change
+           - Clear Cart
+           - Remove line item
 
-    // Putting the data from the line item into the table that we created
-    shoppingCartTable.children[1].children[i].children[0].innerText = itemLine.name;
-    shoppingCartTable.children[1].children[i].children[1].innerText = itemLine.qty;
-    shoppingCartTable.children[1].children[i].children[2].innerText = money(itemLine.unitPrice);
-
-    // Calculate line total and then put that into table
-    let lineTotal = ((itemLine.qty)*(itemLine.unitPrice));
-    shoppingCartTable.children[1].children[i].children[3].innerText =  money(lineTotal);
-
-    // Create a remove button and put it into the last button spot
-    let buttonCreate = document.createElement('button');
-    buttonCreate.innerText = 'Remove';
-    buttonCreate.addEventListener("click", removeItem(shoppingCartTable.children[1].children[i]));
-    shoppingCartTable.children[1].children[i].children[4].appendChild(buttonCreate);
-
-    // Ensure that total is being calculated
-    itemTotal += lineTotal;
-
-    // ensure total qty is being updated
-    totalQty += itemLine.qty;
-  }
-  // Check for membership discount
-  let membership = document.getElementById('memberToggle').checked;
-  console.log(membership)
-  // Calculate volume discount
-  let volDiscount = volumeRate(itemTotal);
-
-  // Check for volume discount vs member discount
-  if (membership === true && volDiscount !== 0){
-    let userChoice = prompt('You can only have one type of discount. Please enter V for Volume or M for Membership')
-    
-    // ensure uppercase
-    userChoice = userChoice.toUpperCase();
-
-    if (userChoice === 'M'){
-      volDiscount = 0;
-    } else if (userChoice === 'V'){
-      isMember = false;
-    } else {
-      volDiscount = 0;
-    }
-  }
-
-  // Set up variable otuside the if else so it can be accessed outside
-  let discount;
-
-  if (membership === true){
-    discount = 0.15;
-  } else if (volDiscount > 0){
-    discount = volDiscount
-  } else {
-    discount = 0;
-  }
-
-  let appliedDiscount= (itemTotal * discount)
-  let subtotal = itemTotal - appliedDiscount + SHIPPING_RATE;
-  let taxAmmount = subtotal * TAX_RATE;
-  let invoiceTotal = subtotal + taxAmmount;
-
-  let summary = `Subtotal: ${money(itemTotal)}
-  Volume Discount:${volDiscount*100}%
-  Membership Discount:${membership*100}%
-  Shipping:${money(SHIPPING_RATE)}
-  Subtotal (Taxable):${money(subtotal)}
-  Tax Rate:${TAX_RATE*100}%
-  Tax Ammount:${money(taxAmmount)}
-  Invoice Total:${money(invoiceTotal)}`;
-
-  // Remove hidden tag from the Summary
-  const outputDiv = document.getElementById('summary');
-  outputDiv.removeAttribute('hidden');
-
-  // Add text to pre tag
-  outputDiv.textContent = summary;
-
-} else{
-  emptyMsg.hidden=false;
-}
-  // 4) Math (single-discount rule):
-  //          ItemTotal = sum(unitPrice * qty)
-  
-  //          If Member checked AND Volume tier would apply → PROMPT user to choose:
-  //            "Only one discount may be applied. Type 'M' for Member or 'V' for Volume:"
-  //            Apply only the chosen one; set the other to $0.00
-  //          Else apply Member OR Volume (not both)
-  //          Subtotal = ItemTotal − AppliedDiscount + SHIPPING_RATE
-  //          TaxAmount = Subtotal * TAX_RATE
-  //          InvoiceTotal = Subtotal + TaxAmount
-
-  //    5) Write a single summary block to #summary (like commission):
-  //          Subtotal of Items
-  //          Volume Discount
-  //          Member Discount
-  //          Shipping
-  //          Subtotal (Taxable)
-  //          Tax Rate %   (as a percentage text)
-  //          Tax Amount $ (as currency)
-  //          Invoice Total
-  //    6) Recompute (call render()) after:
-  //          - Member checkbox change
-  //          - Clear Cart
-
-  //          - Remove line item
-
-  //    KEEP IT SIMPLE: text output only, one render pass.
-  // ========================================================================= 
+     KEEP IT SIMPLE: text output only, one render pass.
+  ========================================================================= */
 
   function render(){
     const itemsDiv   = document.getElementById('items');
@@ -280,19 +154,111 @@ if (cart.length !== 0){
 
     // TODO: STUDENT IMPLEMENTATION
     // For now, show a placeholder so the page isn't blank.
-    itemsDiv.hidden = false;
-    // summaryPre.hidden = false;
-    // emptyMsg.hidden = true;
-    // summaryPre.textContent = 
-`TODO: Implement render() per the assignment spec.
+    itemsDiv.hidden = true;
+    summaryPre.hidden = false;
+    emptyMsg.hidden = true;
 
-Steps:
-1) Load cart from localStorage (readCart)
-2) If empty → show 'Your cart is empty.'
-3) Build text list of items with Remove buttons
-4) Compute totals with exactly one discount (prompt if both apply)
-5) Output a single summary block (commission-style)`;
-  } 
+    // Read Cart
+    let cart = readCart();
+
+    // Create empty variables so they can be scoped outside the if loop
+    let itemTotal = 0;
+    let totalQty = 0;
+
+    // Get the shopping cart table body from the html document
+    let cartTableBody = document.getElementById('shoppingCart');
+
+    // Start if loop that shows the empty cart message if the aray passed by readCart is empty
+    if (cart.length !== 0){
+      // Show item Div
+      itemsDiv.hidden = false;
+
+      // Set up variables outside so we can access them later
+      let itemTotal = 0;
+      let totalQty = 0;
+
+      // 
+      itemsDiv.innerHTML = cart.map(it =>{
+        const lineTotal = it.unitPrice * it.qty;
+
+        // Ensure item total cost is being added to the itemTotal variable
+        itemTotal += lineTotal;
+
+        // Ensure that totalQTY is being updated
+        totalQty += it.qty;
+
+        return `
+          <div>
+            ${it.qty} x ${it.name}
+            <span style="float:right;">${money(lineTotal)}</span>
+            <button data-remote="${it.id}" style="margin-left:8px;">Remove</button>
+          </div>
+        `;
+      }).join('');
+
+      // Check for membership discount
+      const membership = document.getElementById('memberToggle').checked;
+
+      // Calculate volume discount
+      let volDiscount = volumeRate(itemTotal);
+
+      // Check for volume discount vs member discount
+      if (membership === true && volDiscount !== 0){
+        let userChoice = prompt('You can only have one type of discount. Please enter V for Volume or M for Membership')
+        
+        // ensure uppercase
+        userChoice = userChoice.toUpperCase();
+
+        if (userChoice === 'M'){
+          volDiscount = 0;
+        } else if (userChoice === 'V'){
+          isMember = false;
+        } else {
+          volDiscount = 0;
+        }
+      }
+
+      // Set up variable otuside the if else so it can be accessed outside
+      let discount;
+      let mDiscount;
+
+      if (membership === true){
+        mDiscount = 0.15;
+        discount = mDiscount;
+      } else if (volDiscount > 0){
+        discount = volDiscount
+      } else {
+        discount = 0;
+      }
+
+      let appliedDiscount= (itemTotal * discount)
+      let subtotal = itemTotal - appliedDiscount + SHIPPING_RATE;
+      let taxAmmount = subtotal * TAX_RATE;
+      let invoiceTotal = subtotal + taxAmmount;
+
+      let summary = 
+      `
+      Subtotal: ${money(itemTotal)}
+      Volume Discount:${volDiscount*100}%
+      Membership Discount:${mDiscount*100}%
+      Shipping:${money(SHIPPING_RATE)}
+      Subtotal (Taxable):${money(subtotal)}
+      Tax Rate:${TAX_RATE*100}%
+      Tax Ammount:${money(taxAmmount)}
+      Invoice Total:${money(invoiceTotal)}
+      `;
+
+      // Remove hidden tag from the Summary
+      const outputDiv = document.getElementById('summary');
+      outputDiv.removeAttribute('hidden');
+
+      // Add text to pre tag
+      outputDiv.textContent = summary;
+    } else{
+      emptyMsg.hidden=false;
+      summaryPre.hidden=true;
+    }
+  }
 
   // Events → re-render
   document.getElementById('memberToggle').addEventListener('change', render);
@@ -300,9 +266,6 @@ Steps:
 
   // First paint
   render();
-
-  
-
   </script>
 </body>
 </html>
